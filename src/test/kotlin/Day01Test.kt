@@ -1,7 +1,29 @@
-import org.assertj.core.api.Assertions.*
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
 class Day01Test {
+
+    @Test
+    fun readData() {
+
+        // act
+        val rotations = Day01().readData("Day01_TestData.txt")
+
+        // assert
+        assertThat(rotations).containsExactly(
+            "L68",
+            "L30",
+            "R48",
+            "L5",
+            "R60",
+            "L55",
+            "L1",
+            "L99",
+            "R14",
+            "L82",
+        )
+
+    }
 
     @Test
     fun dail_R8() {
@@ -71,4 +93,26 @@ class Day01Test {
         assertThat(result).isEqualTo(10)
     }
 
+    @Test
+    fun part1_test_data() {
+        // arrange
+        val rotations: List<String> = listOf(
+            "L68",
+            "L30",
+            "R48",
+            "L5",
+            "R60",
+            "L55",
+            "L1",
+            "L99",
+            "R14",
+            "L82",
+        )
+
+        // act
+        val result = Day01().part1(rotations)
+
+        // assert
+        assertThat(result).isEqualTo(3)
+    }
 }
