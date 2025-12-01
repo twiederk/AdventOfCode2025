@@ -4,7 +4,15 @@ class Day01 {
         // R means clockwise, L means counter-clockwise
         val direction = dailer[0]
         val distance = dailer.substring(1).toInt()
-        return position + if (direction == 'R') distance else -distance
+
+        val newPosition = position + if (direction == 'R') distance else -distance
+        return normalizeDailPosition(newPosition)
+
+
+    }
+
+    fun normalizeDailPosition(position: Int): Int {
+        return ((position % 100) + 100) % 100
     }
 
 }
