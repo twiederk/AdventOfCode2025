@@ -5,13 +5,21 @@ class Day01Test {
 
     @Test
     fun dail_R8() {
-        // arrange
 
         // act
-        val result = Day01().dail("R8")
+        val result = Day01().dail(11, "R8")
 
         // assert
         assertThat(result).isEqualTo(19)
+    }
 
+    @Test
+    fun dail_L11() {
+
+        // act
+        val result = Day01().dail(11, "L11")
+
+        // assert
+        assertThat(result).isEqualTo(0)
     }
 }
