@@ -76,6 +76,26 @@ class Day01Test {
     }
 
     @Test
+    fun dailWithoutNormalization_around_R6() {
+
+        // act
+        val result = Day01().dailWithoutNormalization(95, "R6")
+
+        // assert
+        assertThat(result).isEqualTo(101)
+    }
+
+    @Test
+    fun dailWithoutNormalization_around_L210() {
+
+        // act
+        val result = Day01().dailWithoutNormalization(5, "L210")
+
+        // assert
+        assertThat(result).isEqualTo(-205)
+    }
+
+    @Test
     fun normalizeDailPosition_negative_105() {
         // act
         val result = Day01().normalizeDailPosition(-105)
@@ -91,6 +111,60 @@ class Day01Test {
 
         // assert
         assertThat(result).isEqualTo(10)
+    }
+
+    @Test
+    fun countRounds_positive_90() {
+        // act
+        val result = Day01().countRounds(90)
+
+        // assert
+        assertThat(result).isEqualTo(0)
+    }
+
+    @Test
+    fun countRounds_positive_110() {
+        // act
+        val result = Day01().countRounds(110)
+
+        // assert
+        assertThat(result).isEqualTo(1)
+    }
+
+    @Test
+    fun countRounds_positive_250() {
+        // act
+        val result = Day01().countRounds(250)
+
+        // assert
+        assertThat(result).isEqualTo(2)
+    }
+
+    @Test
+    fun countRounds_negative_90() {
+        // act
+        val result = Day01().countRounds(-90)
+
+        // assert
+        assertThat(result).isEqualTo(1)
+    }
+
+    @Test
+    fun countRounds_negative_110() {
+        // act
+        val result = Day01().countRounds(-110)
+
+        // assert
+        assertThat(result).isEqualTo(1)
+    }
+
+    @Test
+    fun countRounds_negative_250() {
+        // act
+        val result = Day01().countRounds(-250)
+
+        // assert
+        assertThat(result).isEqualTo(2)
     }
 
     @Test
@@ -114,5 +188,40 @@ class Day01Test {
 
         // assert
         assertThat(result).isEqualTo(3)
+    }
+
+    @Test
+    fun part2_R1000() {
+        // arrange
+        val rotations: List<String> = listOf("R1000")
+
+        // act
+        val result = Day01().part2(rotations)
+
+        // assert
+        assertThat(result).isEqualTo(10)
+    }
+
+    @Test
+    fun part2_test_data() {
+        // arrange
+        val rotations: List<String> = listOf(
+            "L68",
+            "L30",
+            "R48",
+            "L5",
+            "R60",
+            "L55",
+            "L1",
+            "L99",
+            "R14",
+            "L82",
+        )
+
+        // act
+        val result = Day01().part2(rotations)
+
+        // assert
+        assertThat(result).isEqualTo(6)
     }
 }
