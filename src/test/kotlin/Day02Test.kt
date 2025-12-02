@@ -129,6 +129,130 @@ class Day02Test {
 
         // assert
         assertThat(result).isEqualTo(1227775554)
-
     }
+
+    @Test
+    fun findPatterns_99() {
+
+        // act
+        val result = Day02().findPatterns(99)
+
+        // assert
+        assertThat(result).isEqualTo(99)
+    }
+
+    @Test
+    fun findPatterns_999() {
+
+        // act
+        val result = Day02().findPatterns(999)
+
+        // assert
+        assertThat(result).isEqualTo(999)
+    }
+
+    @Test
+    fun findPatterns_1010() {
+
+        // act
+        val result = Day02().findPatterns(1010)
+
+        // assert
+        assertThat(result).isEqualTo(1010)
+    }
+
+    @Test
+    fun findPatterns_1188511885() {
+
+        // act
+        val result = Day02().findPatterns(1188511885)
+
+        // assert
+        assertThat(result).isEqualTo(1188511885)
+    }
+
+    @Test
+    fun findPatterns_222222() {
+
+        // act
+        val result = Day02().findPatterns(222222)
+
+        // assert
+        assertThat(result).isEqualTo(222222)
+    }
+
+    @Test
+    fun findPatterns_446446() {
+
+        // act
+        val result = Day02().findPatterns(446446)
+
+        // assert
+        assertThat(result).isEqualTo(446446)
+    }
+
+    @Test
+    fun findPatterns_38593859() {
+
+        // act
+        val result = Day02().findPatterns(38593859)
+
+        // assert
+        assertThat(result).isEqualTo(38593859)
+    }
+
+    @Test
+    fun findPatterns_565656() {
+
+        // act
+        val result = Day02().findPatterns(565656)
+
+        // assert
+        assertThat(result).isEqualTo(565656)
+    }
+
+    @Test
+    fun findPatterns_824824824() {
+
+        // act
+        val result = Day02().findPatterns(824824824)
+
+        // assert
+        assertThat(result).isEqualTo(824824824)
+    }
+
+    @Test
+    fun findPatterns_2121212121() {
+
+        // act
+        val result = Day02().findPatterns(2121212121)
+
+        // assert
+        assertThat(result).isEqualTo(2121212121)
+    }
+
+    @Test
+    fun solve_part2() {
+        // arrange
+        val ranges = listOf(
+            "11-22",
+            "95-115",
+            "998-1012",
+            "1188511880-1188511890",
+            "222220-222224",
+            "1698522-1698528",
+            "446443-446449",
+            "38593856-38593862",
+            "565653-565659",
+            "824824821-824824827",
+            "2121212118-2121212124",
+        )
+
+        // act
+        val result = Day02().part2(ranges)
+
+        // assert
+        assertThat(result).isEqualTo(4174379265)
+    }
+
 }
