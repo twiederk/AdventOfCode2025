@@ -16,6 +16,21 @@ class Day02 {
         val secondHalf = numberAsString.substring(numberAsString.length / 2)
         return Pair(firstHalf, secondHalf)
     }
+
+    fun validate(number: Pair<String, String>): Int {
+        if (number.first.length != number.second.length
+            || number.first != number.second
+        ) {
+            return 0
+        }
+        return (number.first + number.second).toInt()
+    }
+
+    fun readRanges(filename: String): List<String> {
+        val rawData = Resources.resourceAsText(filename)
+        return rawData.split(",")
+    }
+
 }
 
 fun main() {
