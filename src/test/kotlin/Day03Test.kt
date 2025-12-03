@@ -89,5 +89,40 @@ class Day03Test {
         assertThat(totalJoltage).isEqualTo(357)
     }
 
+    @Test
+    fun joltage12_987654321111111() {
+        // act
+        val joltage = Day03().joltage12("987654321111111")
+
+        // assert
+        assertThat(joltage).isEqualTo(987654321111L)
+    }
+
+    @Test
+    fun joltage12_811111111111119() {
+        // act
+        val joltage = Day03().joltage12("811111111111119")
+
+        // assert
+        assertThat(joltage).isEqualTo(811111111119L)
+    }
+
+    @Test
+    fun joltage12_234234234234278() {
+        // act
+        val joltage = Day03().joltage12("234234234234278")
+
+        // assert
+        assertThat(joltage).isEqualTo(434234234278L)
+    }
+    @Test
+    fun joltage12_818181911112111() {
+        // act
+        val joltage = Day03().joltage12("888911112111")
+
+        // assert
+        assertThat(joltage).isEqualTo(434234234278L)
+    }
+
 }
 

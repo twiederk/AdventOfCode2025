@@ -23,6 +23,18 @@ class Day03 {
         return joltageList.sumOf { Day03().joltage(it) }
     }
 
+    fun joltage12(bank: String): Long {
+        var joltage = ""
+        var remainingBank = bank
+
+        for (i in 11 downTo 0) {
+            val digit = findHighestDigitInString(remainingBank.dropLast(i))
+            remainingBank = substringAfterHighestDigit(digit, bank)
+            joltage += digit
+        }
+        return joltage.toLong()
+    }
+
 }
 
 fun main() {
