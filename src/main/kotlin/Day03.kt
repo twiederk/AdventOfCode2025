@@ -1,2 +1,2 @@
-public class Day03 {
+class Day03 {
 }
