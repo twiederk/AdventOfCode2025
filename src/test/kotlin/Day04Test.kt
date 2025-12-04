@@ -31,7 +31,7 @@ class Day04Test {
         val count = Day04().neighborsCount(Point2D(0, 0), grid)
 
         // assert
-        assertThat(count).isEqualTo(0)
+        assertThat(count).isEqualTo(-1)
     }
 
     @Test
@@ -49,7 +49,7 @@ class Day04Test {
         val count = Day04().neighborsCount(Point2D(9, 0), grid)
 
         // assert
-        assertThat(count).isEqualTo(0)
+        assertThat(count).isEqualTo(-1)
     }
 
     @Test

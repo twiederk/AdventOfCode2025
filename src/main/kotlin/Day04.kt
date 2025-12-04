@@ -5,7 +5,7 @@ class Day04 {
     }
 
     fun neighborsCount(point2D: Point2D, grid: List<String>): Int {
-        if (grid[point2D.y][point2D.x] != '@') return 0
+        if (grid[point2D.y][point2D.x] != '@') return -1
         return point2D.allNeighbors(grid)
             .count { neighbor ->
                 grid[neighbor.y][neighbor.x] == '@'
@@ -16,7 +16,7 @@ class Day04 {
         var count = 0
         for (y in grid.indices) {
             for (x in grid[0].indices) {
-                if (neighborsCount(Point2D(x, y), grid) in 1..3) {
+                if (neighborsCount(Point2D(x, y), grid) in 0..3) {
                     count++
                 }
             }
