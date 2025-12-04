@@ -96,12 +96,12 @@ data class Point2D(
         val neighbors = cardinalNeighbors(grid).toMutableList()
         // north_east
         if (y - 1 >= 0 && x + 1 < grid[0].length) neighbors.add(this + NORTH_EAST)
-        // south_east
-        if (y + 1 < grid.size && x + 1 < grid[0].length) neighbors.add(this + SOUTH_EAST)
         // north_west
         if (y - 1 >= 0 && x - 1 >= 0) neighbors.add(this + NORTH_WEST)
         // south_east
-        if (y + 1 < grid.size && x + 1 < grid[0].length) neighbors.add(this + SOUTH_WEST)
+        if (y + 1 < grid.size && x + 1 < grid[0].length) neighbors.add(this + SOUTH_EAST)
+        // south_west
+        if (y + 1 < grid.size && x - 1  >= 0) neighbors.add(this + SOUTH_WEST)
         return neighbors
     }
 
