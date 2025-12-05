@@ -62,52 +62,15 @@ class Day04Test {
     }
 
     @Test
-    fun solve_part1_count() {
+    fun solve_part1() {
 
         // act
-        val result = Day04().part1Count(grid)
+        val result = Day04().part1(grid)
 
         // assert
         assertThat(result).isEqualTo(13)
     }
 
-    @Test
-    fun collect_neighbors_0_0() {
-        // act
-        val neighbors: List<Point2D> = Day04().collectNeighbors(Point2D(0, 0), grid)
-
-        // assert
-        assertThat(neighbors).isEmpty()
-    }
-
-    @Test
-    fun collect_neighbors_1_1() {
-        // act
-        val neighbors = Day04().collectNeighbors(Point2D(1, 1), grid)
-
-        // assert
-        assertThat(neighbors).hasSize(6)
-    }
-
-    @Test
-    fun collect_neighbors_0_9() {
-        // act
-        val count = Day04().collectNeighbors(Point2D(0, 9), grid)
-
-        // assert
-        assertThat(count).hasSize(1)
-    }
-
-
-    @Test
-    fun solve_part1_collect() {
-
-        // act
-        val result = Day04().part1Collect(grid)
-
-        // assert
-        assertThat(result).isEqualTo(13)
-    }
 }
 
 

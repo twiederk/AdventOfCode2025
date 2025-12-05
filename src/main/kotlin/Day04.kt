@@ -12,27 +12,7 @@ class Day04 {
             }
     }
 
-    fun part1Count(grid: List<String>): Int {
-        var count = 0
-        for (y in grid.indices) {
-            for (x in grid[0].indices) {
-                if (neighborsCount(Point2D(x, y), grid) in 0..3) {
-                    count++
-                }
-            }
-        }
-        return count
-    }
-
-    fun collectNeighbors(point2D: Point2D, grid: List<String>): List<Point2D> {
-        if (grid[point2D.y][point2D.x] != '@') return emptyList()
-        return point2D.allNeighbors(grid)
-            .filter { neighbor ->
-                grid[neighbor.y][neighbor.x] == '@'
-            }
-    }
-
-    fun part1Collect(grid: List<String>): Int {
+    fun part1(grid: List<String>): Int {
         val rolls = mutableListOf<Point2D>()
         for (y in grid.indices) {
             for (x in grid[0].indices) {
@@ -50,9 +30,7 @@ fun main() {
     val day04 = Day04()
     val grid = day04.readData("Day04_InputData.txt")
 
-    val part1Count = day04.part1Count(grid)
-    println("part 1 count: $part1Count")
+    val part1 = day04.part1(grid)
+    println("part 1 count: $part1")
 
-    val part1Collect = day04.part1Collect(grid)
-    println("part 1 collect: $part1Collect")
 }
