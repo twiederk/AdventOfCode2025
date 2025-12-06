@@ -71,6 +71,43 @@ class Day04Test {
         assertThat(result).isEqualTo(13)
     }
 
+    @Test
+    fun create_updated_grid() {
+        // arrange
+        val rolls = listOf(
+            Point2D(x = 2, y = 0),
+            Point2D(x = 3, y = 0),
+            Point2D(x = 5, y = 0),
+            Point2D(x = 6, y = 0),
+            Point2D(x = 8, y = 0),
+            Point2D(x = 0, y = 1),
+            Point2D(x = 6, y = 2),
+            Point2D(x = 0, y = 4),
+            Point2D(x = 9, y = 4),
+            Point2D(x = 0, y = 7),
+            Point2D(x = 0, y = 9),
+            Point2D(x = 2, y = 9),
+            Point2D(x = 8, y = 9)
+        )
+
+        // act
+        val updatedGrid = Day04().createUpdatedGrid(grid, rolls)
+
+        // assert
+        assertThat(updatedGrid).containsExactly(
+            ".......@..",
+            ".@@.@.@.@@",
+            "@@@@@...@@",
+            "@.@@@@..@.",
+            ".@.@@@@.@.",
+            ".@@@@@@@.@",
+            ".@.@.@.@@@",
+            "..@@@.@@@@",
+            ".@@@@@@@@.",
+            "....@@@...",
+        )
+    }
+
 }
 
 

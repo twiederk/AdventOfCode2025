@@ -24,6 +24,20 @@ class Day04 {
         return rolls.size
     }
 
+    fun createUpdatedGrid(grid: List<String>, rolls: List<Point2D>): List<String> {
+        val newGrid = mutableListOf<String>()
+        for ((row, line) in grid.withIndex()) {
+            val newLine = line.toCharArray()
+            for (col in line.indices) {
+                if (rolls.contains(Point2D(col, row))) {
+                    newLine[col] = '.'
+                }
+            }
+            newGrid.add(String(newLine))
+        }
+        return newGrid
+    }
+
 }
 
 fun main() {
