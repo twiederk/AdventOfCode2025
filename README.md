@@ -7,15 +7,19 @@
 | [1] | [Secret Entrance] | &#9733;  |          |       |
 | [2] | [Gift Shop]       | &#9733;  | &#9733;  |       |
 | [3] | [Lobby]           |          |          |       |
+| [4] | [Printing Department]           |          |          |       |
 
 ## Resources
 
 ## To Do
+* Day04: Extract counting of roll in part2 in separate method
 
 [1]: src/main/kotlin/Day01.kt
 [2]: src/main/kotlin/Day02.kt
 [3]: src/main/kotlin/Day03.kt
+[4]: src/main/kotlin/Day04.kt
 
 [Secret Entrance]: https://adventofcode.com/2025/day/1
 [Gift Shop]: https://adventofcode.com/2025/day/2
 [Lobby]: https://adventofcode.com/2025/day/3
+[Printing Department]: https://adventofcode.com/2025/day/4
