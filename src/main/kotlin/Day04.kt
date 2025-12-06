@@ -38,6 +38,27 @@ class Day04 {
         return newGrid
     }
 
+    fun part2(grid: List<String>): Int {
+        var currentGrid = grid
+        var totalRolls = 0
+        while (true) {
+            val rolls = mutableListOf<Point2D>()
+            for (y in currentGrid.indices) {
+                for (x in currentGrid[0].indices) {
+                    if (neighborsCount(Point2D(x, y), currentGrid) in 0..3) {
+                        rolls.add(Point2D(x, y))
+                    }
+                }
+            }
+            if (rolls.isEmpty()) {
+                break
+            }
+            totalRolls += rolls.size
+            currentGrid = createUpdatedGrid(currentGrid, rolls)
+        }
+        return totalRolls
+    }
+
 }
 
 fun main() {
@@ -46,5 +67,8 @@ fun main() {
 
     val part1 = day04.part1(grid)
     println("part 1 count: $part1")
+
+    val part2 = day04.part2(grid)
+    println("part 2 count: $part2")
 
 }

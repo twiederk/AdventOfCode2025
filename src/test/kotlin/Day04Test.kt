@@ -108,6 +108,15 @@ class Day04Test {
         )
     }
 
+    @Test
+    fun solve_part2() {
+
+        // act
+        val result = Day04().part2(grid)
+
+        // assert
+        assertThat(result).isEqualTo(43)
+    }
 }
 
 
