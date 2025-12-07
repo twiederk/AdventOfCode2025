@@ -22,4 +22,24 @@ class Day05 {
         }
         return Pair(ranges, numbers)
     }
+
+    fun solvePart1(ranges: List<LongRange>, ids: List<Long>): Int {
+        var count = 0
+        for (id in ids) {
+            for (range in ranges) {
+                if (id in range) {
+                    count++
+                    break
+                }
+            }
+        }
+        return count
+    }
+}
+
+fun main() {
+    val day05 = Day05()
+    val (ranges, ids) = day05.readData("Day05_InputData.txt")
+    val part1 = day05.solvePart1(ranges, ids)
+    println("Part 1 Result: $part1")
 }
