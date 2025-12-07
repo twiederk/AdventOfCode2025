@@ -1,9 +1,6 @@
-class Day06(
-    private val numbers: List<List<Int>>,
-    private val operators: List<Char>
-) {
-    fun calculateColumn(columnId: Int): Int {
-        when (operators[columnId]) {
+class Day06() {
+    fun calculateColumn(numbers: List<List<Int>>, operator: Char, columnId: Int): Int {
+        when (operator) {
             '+' -> {
                 var sum = 0
                 for (i in numbers.indices) {
@@ -18,8 +15,18 @@ class Day06(
                 }
                 return product
             }
-            else -> throw IllegalArgumentException("Unsupported operator: ${operators[columnId]}")
+            else -> throw IllegalArgumentException("Unsupported operator: $operator")
         }
+    }
+
+    fun readData(fileName: String): Pair<List<List<Int>>, List<Char>> {
+        val rawData = Resources.resourceAsListOfString(fileName)
+        val numbers = rawData.dropLast(1).map { line ->
+            line.split(",").map { it.toInt() }
+        }
+        val operators = rawData[rawData.lastIndex].split(",")
+            .map { it[0] }
+        return Pair(numbers,    operators)
     }
 
 }

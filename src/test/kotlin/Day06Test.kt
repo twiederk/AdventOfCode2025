@@ -4,17 +4,34 @@ import org.junit.jupiter.api.Test
 class Day06Test {
 
     private val numbers = listOf(
-        listOf(123,328,51,64),
-        listOf(45,64,387,23),
-        listOf(6,98,215,314),
+        listOf(123, 328, 51, 64),
+        listOf(45, 64, 387, 23),
+        listOf(6, 98, 215, 314),
     )
 
-    private val operators = listOf('*','+','*','+')
+    private val operators = listOf('*', '+', '*', '+')
+
+    @Test
+    fun read_data() {
+        // arrange
+
+        // act
+        val (numbers, operators) = Day06().readData("Day06_TestData.txt")
+
+        // assert
+        assertThat(numbers).containsExactly(
+            listOf(123, 328, 51, 64),
+            listOf(45, 64, 387, 23),
+            listOf(6, 98, 215, 314),
+        )
+
+        assertThat(operators).containsExactly('*', '+', '*', '+')
+    }
 
     @Test
     fun calculate_column_0() {
         // act
-        val result = Day06(numbers, operators).calculateColumn(0)
+        val result = Day06().calculateColumn(numbers, operators[0], 0)
 
         // assert
         assertThat(result).isEqualTo(33210)
@@ -23,7 +40,7 @@ class Day06Test {
     @Test
     fun calculate_column_1() {
         // act
-        val result = Day06(numbers, operators).calculateColumn(1)
+        val result = Day06().calculateColumn(numbers, operators[1], 1)
 
         // assert
         assertThat(result).isEqualTo(490)
@@ -32,7 +49,7 @@ class Day06Test {
     @Test
     fun calculate_column_2() {
         // act
-        val result = Day06(numbers, operators).calculateColumn(2)
+        val result = Day06().calculateColumn(numbers, operators[2], 2)
 
         // assert
         assertThat(result).isEqualTo(4243455)
@@ -41,7 +58,7 @@ class Day06Test {
     @Test
     fun calculate_column_3() {
         // act
-        val result = Day06(numbers, operators).calculateColumn(3)
+        val result = Day06().calculateColumn(numbers, operators[3], 3)
 
         // assert
         assertThat(result).isEqualTo(401)
