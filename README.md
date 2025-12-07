@@ -9,6 +9,8 @@
 | [3] | [Lobby]               | &#9733; |         |       |
 | [4] | [Printing Department] | &#9733; | &#9733; |       |
 | [5] | [Cafeteria]           | &#9733; |         |       |
+| [6] | [Trash Compactor]     |         |         |       |
+| [7] | [Laboratories ]       |         |         |       |
 
 ## Resources
 
@@ -20,9 +22,13 @@
 [3]: src/main/kotlin/Day03.kt
 [4]: src/main/kotlin/Day04.kt
 [5]: src/main/kotlin/Day05.kt
+[6]: src/main/kotlin/Day06.kt
+[7]: src/main/kotlin/Day07.kt
 
 [Secret Entrance]: https://adventofcode.com/2025/day/1
 [Gift Shop]: https://adventofcode.com/2025/day/2
 [Lobby]: https://adventofcode.com/2025/day/3
 [Printing Department]: https://adventofcode.com/2025/day/4
 [Cafeteria]: https://adventofcode.com/2025/day/5
+[Trash Compactor]: https://adventofcode.com/2025/day/6
+[Laboratories]: https://adventofcode.com/2025/day/7
