@@ -3,6 +3,13 @@ import org.junit.jupiter.api.Test
 
 class Day05Test {
 
+    private val ranges: List<LongRange> = listOf(
+        LongRange(3, 5),
+        LongRange(10, 14),
+        LongRange(16, 20),
+        LongRange(12, 18)
+    )
+
     @Test
     fun read_data() {
 
@@ -16,14 +23,6 @@ class Day05Test {
 
     @Test
     fun solve_part1() {
-        // arrange
-        val ranges: List<LongRange> = listOf(
-            LongRange(3, 5),
-            LongRange(10, 14),
-            LongRange(16, 20),
-            LongRange(12, 18)
-        )
-
         val ingredientIds: List<Long> = listOf(1, 5, 8, 11, 17, 32)
 
         // act
@@ -33,4 +32,31 @@ class Day05Test {
         assertThat(result).isEqualTo(3)
     }
 
+    @Test
+    fun min_start_value_of_ranges() {
+        // act
+        val minStart: Long = ranges.minOf { it.first }
+
+        // assert
+        assertThat(minStart).isEqualTo(3)
+    }
+
+    @Test
+    fun max_end_value_of_ranges() {
+        // act
+        val maxEnd: Long = ranges.maxOf { it.last }
+
+        // assert
+        assertThat(maxEnd).isEqualTo(20)
+    }
+
+    @Test
+    fun solve_part2() {
+        // act
+        val result = Day05().solvePart2(ranges)
+
+        // assert
+        assertThat(result).isEqualTo(14L)
+
+    }
 }

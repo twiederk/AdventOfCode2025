@@ -35,11 +35,32 @@ class Day05 {
         }
         return count
     }
+
+    fun solvePart2(ranges: List<LongRange>): Long {
+        val minStart = ranges.minOf { it.first }
+        val maxEnd = ranges.maxOf { it.last }
+        var count = 0L
+        for (value in minStart..maxEnd) {
+            for (range in ranges) {
+                if (value in range) {
+                    count++
+                    break
+                }
+            }
+        }
+        return count
+    }
+
+
 }
 
 fun main() {
     val day05 = Day05()
     val (ranges, ids) = day05.readData("Day05_InputData.txt")
+
     val part1 = day05.solvePart1(ranges, ids)
     println("Part 1 Result: $part1")
+
+    val part2 = day05.solvePart2(ranges)
+    println("Part 2 Result: $part2")
 }
