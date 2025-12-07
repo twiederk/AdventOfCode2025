@@ -64,4 +64,14 @@ class Day06Test {
         assertThat(result).isEqualTo(401)
     }
 
+    @Test
+    fun solve_part1() {
+
+        // act
+        val result = Day06().part1(numbers, operators)
+
+        // assert
+        assertThat(result).isEqualTo(4277556)
+    }
+
 }
