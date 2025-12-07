@@ -2,15 +2,15 @@
 
 ## Overview of the puzzles
 
-| Day | Title                 | Part 1  | Part 2  | Notes |
-|----:|-----------------------|:-------:|:-------:|-------|
-| [1] | [Secret Entrance]     | &#9733; |         |       |
-| [2] | [Gift Shop]           | &#9733; | &#9733; |       |
-| [3] | [Lobby]               | &#9733; |         |       |
-| [4] | [Printing Department] | &#9733; | &#9733; |       |
-| [5] | [Cafeteria]           | &#9733; |         |       |
-| [6] | [Trash Compactor]     |         |         |       |
-| [7] | [Laboratories ]       |         |         |       |
+| Day | Title                 | Part 1  | Part 2  | Notes  |
+|----:|-----------------------|:-------:|:-------:|--------|
+| [1] | [Secret Entrance]     | &#9733; |         |        |
+| [2] | [Gift Shop]           | &#9733; | &#9733; |        |
+| [3] | [Lobby]               | &#9733; |         |        |
+| [4] | [Printing Department] | &#9733; | &#9733; |        |
+| [5] | [Cafeteria]           | &#9733; |         | Ranges |
+| [6] | [Trash Compactor]     | &#9733; |         |        |
+| [7] | [Laboratories ]       |         |         |        |
 
 ## Resources
 
