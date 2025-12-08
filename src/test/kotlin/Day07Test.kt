@@ -63,10 +63,11 @@ class Day07Test {
         val beams = setOf(7)
 
         // act
-        val result: Set<Int> = Day07().downward(grid, beams, 2)
+        val (result, splits) = Day07().downward(grid, beams, 2)
 
         // assert
         assertThat(result).containsExactly(6, 8)
+        assertThat(splits).isEqualTo(1)
     }
 
     @Test
@@ -75,10 +76,11 @@ class Day07Test {
         val beams = setOf(6, 8)
 
         // act
-        val result: Set<Int> = Day07().downward(grid, beams, 4)
+        val (result, splits) = Day07().downward(grid, beams, 4)
 
         // assert
         assertThat(result).containsExactly(5, 7, 9)
+        assertThat(splits).isEqualTo(2)
     }
 
     @Test
@@ -87,10 +89,20 @@ class Day07Test {
         val beams = setOf(4, 6, 8, 10)
 
         // act
-        val result: Set<Int> = Day07().downward(grid, beams, 8)
+        val (result, splits) = Day07().downward(grid, beams, 8)
 
         // assert
-        assertThat(result).containsExactly(3, 5, 7,8, 9, 11)
+        assertThat(result).containsExactly(3, 5, 7, 8, 9, 11)
+        assertThat(splits).isEqualTo(3)
+    }
+
+    @Test
+    fun solve_part1() {
+        // act
+        val result: Int = Day07().part1(grid)
+
+        // assert
+        assertThat(result).isEqualTo(21)
     }
 
 }
