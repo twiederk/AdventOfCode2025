@@ -24,6 +24,20 @@ class Day07 {
         return Pair(newBeams, split)
     }
 
+    fun downwardTimeline(grid: List<String>, beams: List<Int>, row: Int): List<Int> {
+        val newBeams = mutableListOf<Int>()
+        val line = grid[row]
+        for (beam in beams) {
+            if (line[beam] == '^') {
+                newBeams.add(beam - 1)
+                newBeams.add(beam + 1)
+            } else {
+                newBeams.add(beam)
+            }
+        }
+        return newBeams
+    }
+
     fun part1(grid: List<String>): Int {
         var totalSplits = 0
         var beams = setOf(startingPosition(grid[0]))
@@ -35,6 +49,14 @@ class Day07 {
         return totalSplits
     }
 
+    fun part2(grid: List<String>): Int {
+        var beams = listOf(startingPosition(grid[0]))
+        for (row in 2 until grid.size step 2) {
+            beams = downwardTimeline(grid, beams, row)
+        }
+        return beams.size
+    }
+
 }
 
 fun main() {
@@ -42,4 +64,7 @@ fun main() {
 
     val part1 = Day07().part1(grid)
     println("Part 1: $part1")
+
+    val part2 = Day07().part2(grid)
+    println("Part 2: $part2")
 }

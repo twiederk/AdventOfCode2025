@@ -105,4 +105,13 @@ class Day07Test {
         assertThat(result).isEqualTo(21)
     }
 
+    @Test
+    fun solve_part2() {
+        // act
+        val result: Int = Day07().part2(grid)
+
+        // assert
+        assertThat(result).isEqualTo(40)
+    }
+
 }
