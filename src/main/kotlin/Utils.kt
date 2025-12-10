@@ -115,6 +115,12 @@ data class Point2D(
     fun manhattenDistance(other: Point2D): Int =
         abs(x - other.x) + abs(y - other.y)
 
+    fun distanceSquared(other: Point2D): Int {
+        val dx = x - other.x
+        val dy = y - other.y
+        return dx * dx + dy * dy
+    }
+
 }
 
 data class LongPoint(
