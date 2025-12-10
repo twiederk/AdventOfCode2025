@@ -168,7 +168,7 @@ class Day10Test {
     }
 
     @Test
-    fun joltageState_nextStages() {
+    fun joltageState_nextStates() {
         // arrange
         val buttons = listOf(
             listOf(3), listOf(1, 3), listOf(2), listOf(2, 3), listOf(0, 2), listOf(0, 1)
@@ -188,5 +188,59 @@ class Day10Test {
                 JoltageState(listOf(1, 1, 0, 0)),
             )
         )
+    }
+
+    @Test
+    fun solve_joltage_line_1() {
+        // (0,2,3) (1,3) {11,10,11,21}
+
+        // arrange
+        val goal = listOf(3, 5, 4, 7)
+
+        // act
+        val result =
+            Day10().dijkstraPart2(
+                goal,
+                listOf(listOf(3), listOf(1, 3), listOf(2), listOf(2, 3), listOf(0, 2), listOf(0, 1))
+            )
+
+        // assert
+        assertThat(result).isEqualTo(10)
+    }
+
+    @Test
+    fun solve_joltage_line_2() {
+        // (0,2,3,4) (2,3) (0,4) (0,1,2) (1,2,3,4) {7,5,12,7,2}
+
+        // arrange
+        val goal = listOf(7, 5, 12, 7, 2)
+
+        // act
+        val result =
+            Day10().dijkstraPart2(
+                goal,
+                listOf(listOf(0, 2, 3, 4), listOf(2, 3), listOf(0, 4), listOf(0, 1, 2), listOf(1, 2, 3, 4))
+            )
+
+        // assert
+        assertThat(result).isEqualTo(12)
+    }
+
+    @Test
+    fun solve_joltage_line_3() {
+        // (0,1,2,3,4) (0,3,4) (0,1,2,4,5) (1,2) {10,11,11,5,10,5}
+
+        // arrange
+        val goal = listOf(10, 11, 11, 5, 10, 5)
+
+        // act
+        val result =
+            Day10().dijkstraPart2(
+                goal,
+                listOf(listOf(0, 1, 2, 3, 4), listOf(0, 3, 4), listOf(0, 1, 2, 4, 5), listOf(1, 2))
+            )
+
+        // assert
+        assertThat(result).isEqualTo(11)
     }
 }

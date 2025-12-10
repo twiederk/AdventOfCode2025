@@ -4,9 +4,9 @@ class Day10 {
 
     fun dijkstra(goal: BitSet, buttons: List<List<Int>>): Int {
         val seen = mutableSetOf<EngineState>()
-        val queue = PriorityQueue<Work>()
+        val queue = PriorityQueue<EngineWork>()
 
-        queue += Work(EngineState(BitSet(goal.size())), 0)
+        queue += EngineWork(EngineState(BitSet(goal.size())), 0)
 
         while (queue.isNotEmpty()) {
             val work = queue.poll()
@@ -15,7 +15,7 @@ class Day10 {
             work.engineState.nextStates(buttons)
                 .filterNot { engineState -> engineState in seen }
                 .forEach { engineState ->
-                    queue += Work(engineState, work.steps + 1)
+                    queue += EngineWork(engineState, work.steps + 1)
                     seen += engineState
                 }
         }
@@ -61,14 +61,33 @@ class Day10 {
         }
         return Triple(lights, buttons, joltage)
     }
+
+    fun dijkstraPart2(goal: List<Int>, buttons: List<List<Int>>): Int {
+        val seen = mutableSetOf<JoltageState>()
+        val queue = PriorityQueue<JoltageWork>()
+
+        queue += JoltageWork(JoltageState(List(goal.size) { 0 }), 0)
+
+        while (queue.isNotEmpty()) {
+            val work = queue.poll()
+            if (work.joltageState.joltage == goal) return work.steps
+
+            work.joltageState.nextStates(buttons)
+                .filterNot { joltageState -> joltageState in seen }
+                .forEach { engineState ->
+                    queue += JoltageWork(engineState, work.steps + 1)
+                    seen += engineState
+                }
+        }
+        throw IllegalStateException("No route to goal")    }
 }
 
-data class Work(
+data class EngineWork(
     val engineState: EngineState,
     val steps: Int
-) : Comparable<Work> {
+) : Comparable<EngineWork> {
 
-    override fun compareTo(other: Work): Int {
+    override fun compareTo(other: EngineWork): Int {
         return steps.compareTo(other.steps)
     }
 
@@ -90,13 +109,18 @@ data class EngineState(
     }
 }
 
-fun main() {
-    val day10 = Day10()
-    val (lights, buttons) = day10.readData("Day10_InputData.txt")
 
-    val part1 = day10.part1(lights, buttons)
-    println("Part 1: $part1")
+data class JoltageWork(
+    val joltageState: JoltageState,
+    val steps: Int
+) : Comparable<JoltageWork> {
+
+    override fun compareTo(other: JoltageWork): Int {
+        return steps.compareTo(other.steps)
+    }
+
 }
+
 
 data class JoltageState(
     val joltage: List<Int>
@@ -113,3 +137,11 @@ data class JoltageState(
         return buttons.map { next(it) }
     }
 }
+fun main() {
+    val day10 = Day10()
+    val (lights, buttons) = day10.readData("Day10_InputData.txt")
+
+    val part1 = day10.part1(lights, buttons)
+    println("Part 1: $part1")
+}
+
