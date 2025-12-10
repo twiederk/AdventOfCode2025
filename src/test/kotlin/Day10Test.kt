@@ -45,7 +45,8 @@ class Day10Test {
         val goal = BitSet(4).apply { set(1); set(2) }
 
         // act
-        val result = Day10().dijkstra(goal, listOf(listOf(3), listOf(1, 3), listOf(2), listOf(2, 3), listOf(0, 2), listOf(0, 1)))
+        val result =
+            Day10().dijkstra(goal, listOf(listOf(3), listOf(1, 3), listOf(2), listOf(2, 3), listOf(0, 2), listOf(0, 1)))
 
         // assert
         assertThat(result).isEqualTo(2)
@@ -128,7 +129,7 @@ class Day10Test {
     @Test
     fun read_data() {
         // act
-        val (lights, buttons) = Day10().readData("Day10_TestData.txt")
+        val (lights, buttons, joltage) = Day10().readData("Day10_TestData.txt")
 
         // assert
         assertThat(lights).isEqualTo(
@@ -143,6 +144,14 @@ class Day10Test {
                 listOf(listOf(3), listOf(1, 3), listOf(2), listOf(2, 3), listOf(0, 2), listOf(0, 1)),
                 listOf(listOf(0, 2, 3, 4), listOf(2, 3), listOf(0, 4), listOf(0, 1, 2), listOf(1, 2, 3, 4)),
                 listOf(listOf(0, 1, 2, 3, 4), listOf(0, 3, 4), listOf(0, 1, 2, 4, 5), listOf(1, 2))
+            )
+        )
+
+        assertThat(joltage).isEqualTo(
+            listOf(
+                listOf(3, 5, 4, 7),
+                listOf(7, 5, 12, 7, 2),
+                listOf(10, 11, 11, 5, 10, 5),
             )
         )
 

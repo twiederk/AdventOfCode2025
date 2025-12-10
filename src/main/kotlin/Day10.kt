@@ -38,13 +38,15 @@ class Day10 {
         }
     }
 
-    fun readData(filename: String): Pair<List<String>, List<List<List<Int>>>> {
+    fun readData(filename: String): Triple<List<String>, List<List<List<Int>>>, List<List<Int>>> {
         val rawData = Resources.resourceAsListOfString(filename)
         val lights = mutableListOf<String>()
         val buttons = mutableListOf<List<List<Int>>>()
+        val joltage = mutableListOf<List<Int>>()
 
         for (line in rawData) {
             lights.add(line.substringAfter('[').substringBefore(']'))
+
             val buttonStrings = line.substringAfter("] (").substringBefore(") {")
             buttons.add(
                 buttonStrings.split(") (")
@@ -52,8 +54,12 @@ class Day10 {
                         list.split(',')
                             .map { number -> number.toInt() }
                     })
+
+            joltage.add(line.substringAfter(") {").substringBefore("}")
+                .split(',')
+                .map { it.toInt() } )
         }
-        return Pair(lights, buttons)
+        return Triple(lights, buttons, joltage)
     }
 }
 
