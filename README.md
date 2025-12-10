@@ -2,17 +2,18 @@
 
 ## Overview of the puzzles
 
-| Day | Title                 | Part 1  | Part 2  | Notes     |
-|----:|-----------------------|:-------:|:-------:|-----------|
-| [1] | [Secret Entrance]     | &#9733; |         |           |
-| [2] | [Gift Shop]           | &#9733; | &#9733; |           |
-| [3] | [Lobby]               | &#9733; |         |           |
-| [4] | [Printing Department] | &#9733; | &#9733; |           |
-| [5] | [Cafeteria]           | &#9733; |         | Ranges    |
-| [6] | [Trash Compactor]     | &#9733; |         |           |
-| [7] | [Laboratories]        | &#9733; |         | Timelines |
-| [8] | [Playground]          |         |         |           |
-| [9] | [Movie Theater]       |         |         |           |
+|  Day | Title                  | Part 1  | Part 2  | Notes     |
+|-----:|------------------------|:-------:|:-------:|-----------|
+|  [1] | [Secret Entrance]      | &#9733; |         |           |
+|  [2] | [Gift Shop]            | &#9733; | &#9733; |           |
+|  [3] | [Lobby]                | &#9733; |         |           |
+|  [4] | [Printing Department]  | &#9733; | &#9733; |           |
+|  [5] | [Cafeteria]            | &#9733; |         | Ranges    |
+|  [6] | [Trash Compactor]      | &#9733; |         |           |
+|  [7] | [Laboratories]         | &#9733; |         | Timelines |
+|  [8] | [Playground]           |         |         |           |
+|  [9] | [Movie Theater]        | &#9733; |         |           |
+| [10] | [Factory]              |         |         |           |
 
 ## Resources
 
@@ -28,6 +29,7 @@
 [7]: src/main/kotlin/Day07.kt
 [8]: src/main/kotlin/Day08.kt
 [9]: src/main/kotlin/Day09.kt
+[9]: src/main/kotlin/Day10.kt
 
 [Secret Entrance]: https://adventofcode.com/2025/day/1
 [Gift Shop]: https://adventofcode.com/2025/day/2
@@ -38,3 +40,4 @@
 [Laboratories]: https://adventofcode.com/2025/day/7
 [Playground]: https://adventofcode.com/2025/day/8
 [Movie Theater]: https://adventofcode.com/2025/day/9
+[Factory]: https://adventofcode.com/2025/day/10
