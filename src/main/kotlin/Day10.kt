@@ -97,3 +97,19 @@ fun main() {
     val part1 = day10.part1(lights, buttons)
     println("Part 1: $part1")
 }
+
+data class JoltageState(
+    val joltage: List<Int>
+) {
+    fun next(indexList: List<Int>): JoltageState {
+        val newJoltageList = joltage.toMutableList()
+        for (index in indexList) {
+            newJoltageList[index] += 1
+        }
+        return JoltageState(newJoltageList)
+    }
+
+    fun nextStates(buttons: List<List<Int>>): List<JoltageState> {
+        return buttons.map { next(it) }
+    }
+}

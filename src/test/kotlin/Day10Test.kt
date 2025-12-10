@@ -154,6 +154,39 @@ class Day10Test {
                 listOf(10, 11, 11, 5, 10, 5),
             )
         )
+    }
 
+    @Test
+    fun joltageState_next() {
+        // arrange
+
+        // act
+        val next = JoltageState(listOf(0, 1, 2, 3)).next(listOf(1, 3))
+
+        // assert
+        assertThat(next).isEqualTo(JoltageState(listOf(0, 2, 2, 4)))
+    }
+
+    @Test
+    fun joltageState_nextStages() {
+        // arrange
+        val buttons = listOf(
+            listOf(3), listOf(1, 3), listOf(2), listOf(2, 3), listOf(0, 2), listOf(0, 1)
+        )
+
+        // act
+        val nextStates = JoltageState(listOf(0, 0, 0, 0)).nextStates(buttons)
+
+        // assert
+        assertThat(nextStates).isEqualTo(
+            listOf(
+                JoltageState(listOf(0, 0, 0, 1)),
+                JoltageState(listOf(0, 1, 0, 1)),
+                JoltageState(listOf(0, 0, 1, 0)),
+                JoltageState(listOf(0, 0, 1, 1)),
+                JoltageState(listOf(1, 0, 1, 0)),
+                JoltageState(listOf(1, 1, 0, 0)),
+            )
+        )
     }
 }
