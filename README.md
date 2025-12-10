@@ -13,7 +13,7 @@
 |  [7] | [Laboratories]         | &#9733; |         | Timelines |
 |  [8] | [Playground]           |         |         |           |
 |  [9] | [Movie Theater]        | &#9733; |         |           |
-| [10] | [Factory]              |         |         |           |
+| [10] | [Factory]              | &#9733; |         |           |
 
 ## Resources
 
