@@ -29,7 +29,7 @@
 [7]: src/main/kotlin/Day07.kt
 [8]: src/main/kotlin/Day08.kt
 [9]: src/main/kotlin/Day09.kt
-[9]: src/main/kotlin/Day10.kt
+[10]: src/main/kotlin/Day10.kt
 
 [Secret Entrance]: https://adventofcode.com/2025/day/1
 [Gift Shop]: https://adventofcode.com/2025/day/2
