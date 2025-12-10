@@ -38,6 +38,12 @@ class Day10 {
         }
     }
 
+    fun part2(joltage: List<List<Int>>, buttons: List<List<List<Int>>>): Int {
+        return joltage.zip(buttons).sumOf { (jolt, button) ->
+            dijkstraPart2(jolt, button)
+        }
+    }
+
     fun readData(filename: String): Triple<List<String>, List<List<List<Int>>>, List<List<Int>>> {
         val rawData = Resources.resourceAsListOfString(filename)
         val lights = mutableListOf<String>()
@@ -139,9 +145,12 @@ data class JoltageState(
 }
 fun main() {
     val day10 = Day10()
-    val (lights, buttons) = day10.readData("Day10_InputData.txt")
+    val (lights, buttons, joltage) = day10.readData("Day10_InputData.txt")
 
     val part1 = day10.part1(lights, buttons)
     println("Part 1: $part1")
+
+    val part2 = day10.part2(joltage, buttons)
+    println("Part 2: $part2")
 }
 
