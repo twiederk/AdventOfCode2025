@@ -2,12 +2,6 @@ import java.util.*
 
 class Day10 {
 
-    // [.##.] (3) (1,3) (2) (2,3) (0,2) (0,1) {3,5,4,7}
-    // start position [...]
-    // target position [.##.]
-    // next: (3) (1,3) (2) (2,3) (0,2) (0,1)
-    // distance to target: target position - next position
-
     fun dijkstra(goal: BitSet, buttons: List<List<Int>>): Int {
         val seen = mutableSetOf<EngineState>()
         val queue = PriorityQueue<Work>()
@@ -32,7 +26,7 @@ class Day10 {
         val bitSet = BitSet(lights.length)
         lights.forEachIndexed { index, c ->
             if (c == '#') {
-                bitSet.set(index - 1)
+                bitSet.set(index)
             }
         }
         return bitSet
@@ -42,6 +36,24 @@ class Day10 {
         return lights.zip(buttons).sumOf { (light, button) ->
             dijkstra(toBitSet(light), button)
         }
+    }
+
+    fun readData(filename: String): Pair<List<String>, List<List<List<Int>>>> {
+        val rawData = Resources.resourceAsListOfString(filename)
+        val lights = mutableListOf<String>()
+        val buttons = mutableListOf<List<List<Int>>>()
+
+        for (line in rawData) {
+            lights.add(line.substringAfter('[').substringBefore(']'))
+            val buttonStrings = line.substringAfter("] (").substringBefore(") {")
+            buttons.add(
+                buttonStrings.split(") (")
+                    .map { list ->
+                        list.split(',')
+                            .map { number -> number.toInt() }
+                    })
+        }
+        return Pair(lights, buttons)
     }
 }
 
@@ -70,4 +82,12 @@ data class EngineState(
     fun nextStates(buttons: List<List<Int>>): List<EngineState> {
         return buttons.map { next(it) }
     }
+}
+
+fun main() {
+    val day10 = Day10()
+    val (lights, buttons) = day10.readData("Day10_InputData.txt")
+
+    val part1 = day10.part1(lights, buttons)
+    println("Part 1: $part1")
 }

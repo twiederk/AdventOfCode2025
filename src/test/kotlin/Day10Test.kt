@@ -85,27 +85,37 @@ class Day10Test {
     }
 
     @Test
-    fun to_bitset() {
+    fun to_bitset_0110() {
         // act
-        val result = Day10().toBitSet("[.##.]")
+        val result = Day10().toBitSet(".##.")
 
         // assert
         assertThat(result).isEqualTo(BitSet(4).apply { set(1); set(2) })
     }
 
     @Test
+    fun to_bitset_0101() {
+        // act
+        val result = Day10().toBitSet(".#.#")
+
+        // assert
+        assertThat(result).isEqualTo(BitSet(4).apply { set(1); set(3) })
+        println(result)
+    }
+
+    @Test
     fun solve_part1() {
         // arrange
         val lights = listOf(
-            "[.##.]",
-            "[...#.]",
-            "[.###.#]"
+            ".##.",
+            "...#.",
+            ".###.#",
         )
 
         val buttons = listOf(
             listOf(listOf(3), listOf(1, 3), listOf(2), listOf(2, 3), listOf(0, 2), listOf(0, 1)),
             listOf(listOf(0, 2, 3, 4), listOf(2, 3), listOf(0, 4), listOf(0, 1, 2), listOf(1, 2, 3, 4)),
-            listOf(listOf(0, 1, 2, 3, 4), listOf(0, 3, 4), listOf(0, 1, 2, 4, 5), listOf(1, 2))
+            listOf(listOf(0, 1, 2, 3, 4), listOf(0, 3, 4), listOf(0, 1, 2, 4, 5), listOf(1, 2)),
         )
 
         // act
@@ -113,5 +123,28 @@ class Day10Test {
 
         // assert
         assertThat(result).isEqualTo(7)
+    }
+
+    @Test
+    fun read_data() {
+        // act
+        val (lights, buttons) = Day10().readData("Day10_TestData.txt")
+
+        // assert
+        assertThat(lights).isEqualTo(
+            listOf(
+                ".##.",
+                "...#.",
+                ".###.#",
+            )
+        )
+        assertThat(buttons).isEqualTo(
+            listOf(
+                listOf(listOf(3), listOf(1, 3), listOf(2), listOf(2, 3), listOf(0, 2), listOf(0, 1)),
+                listOf(listOf(0, 2, 3, 4), listOf(2, 3), listOf(0, 4), listOf(0, 1, 2), listOf(1, 2, 3, 4)),
+                listOf(listOf(0, 1, 2, 3, 4), listOf(0, 3, 4), listOf(0, 1, 2, 4, 5), listOf(1, 2))
+            )
+        )
+
     }
 }
