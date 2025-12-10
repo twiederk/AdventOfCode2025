@@ -10,7 +10,9 @@
 | [4] | [Printing Department] | &#9733; | &#9733; |           |
 | [5] | [Cafeteria]           | &#9733; |         | Ranges    |
 | [6] | [Trash Compactor]     | &#9733; |         |           |
-| [7] | [Laboratories ]       | &#9733; |         | Timelines |
+| [7] | [Laboratories]        | &#9733; |         | Timelines |
+| [8] | [Playground]          |         |         |           |
+| [9] | [Movie Theater]       |         |         |           |
 
 ## Resources
 
@@ -24,6 +26,8 @@
 [5]: src/main/kotlin/Day05.kt
 [6]: src/main/kotlin/Day06.kt
 [7]: src/main/kotlin/Day07.kt
+[8]: src/main/kotlin/Day08.kt
+[9]: src/main/kotlin/Day09.kt
 
 [Secret Entrance]: https://adventofcode.com/2025/day/1
 [Gift Shop]: https://adventofcode.com/2025/day/2
@@ -32,3 +36,5 @@
 [Cafeteria]: https://adventofcode.com/2025/day/5
 [Trash Compactor]: https://adventofcode.com/2025/day/6
 [Laboratories]: https://adventofcode.com/2025/day/7
+[Playground]: https://adventofcode.com/2025/day/8
+[Movie Theater]: https://adventofcode.com/2025/day/9
