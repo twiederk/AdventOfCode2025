@@ -12,7 +12,6 @@ class Day11 {
         return dfsIterative(graph)
     }
 
-    // Iterative DFS mit Stack
     fun dfsIterative(graph: Map<String, List<String>>): Int {
         val stack = ArrayDeque<String>()
         stack.addFirst("you")
@@ -31,18 +30,30 @@ class Day11 {
         }
         return paths
     }
-    /*
-        // Rekursive DFS
-        fun dfsRecursive(graph: Map<Int, List<Int>>, start: Int, visited: MutableSet<Int> = mutableSetOf()) {
-            if (start in visited) return
-            visited.add(start)
-            process(start) // Aktion beim Besuch, z.B. print oder prüfen
-            for (neighbor in graph[start] ?: emptyList()) {
-                dfsRecursive(graph, neighbor, visited)
+
+    fun dfsIterative2(graph: Map<String, List<String>>): List<List<String>> {
+        val stack = ArrayDeque<String>()
+        stack.addFirst("svr")
+        val paths = mutableListOf<List<String>>()
+
+        while (stack.isNotEmpty()) {
+            val node = stack.removeFirst()
+            if (node == "out") {
+                paths.add(listOf())
+                continue
+            }
+
+            for (neighbor in graph[node] ?: emptyList()) {
+                stack.addFirst(neighbor)
             }
         }
+        return paths
+    }
 
-     */
+    fun part2(graph: Map<String, List<String>>): Int {
+        val paths = dfsIterative2(graph)
+        return paths.size
+    }
 
 }
 
