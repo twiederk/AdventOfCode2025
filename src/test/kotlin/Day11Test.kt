@@ -12,4 +12,27 @@ class Day11Test {
         assertThat(graph.size).isEqualTo(10)
     }
 
+    @Test
+    fun solve_part1() {
+        // arrange
+        val graph = mapOf(
+            "aaa" to listOf("you", "hhh"),
+            "you" to listOf("bbb", "ccc"),
+            "bbb" to listOf("ddd", "eee"),
+            "ccc" to listOf("ddd", "eee",  "fff"),
+            "ddd" to listOf("ggg"),
+            "eee" to listOf("out"),
+            "fff" to listOf("out"),
+            "ggg" to listOf("out"),
+            "hhh" to listOf("ccc", "fff", "iii"),
+            "iii" to listOf("out"),
+        )
+
+        // act
+        val paths = Day11().solvePart1(graph)
+
+        // assert
+        assertThat(paths).isEqualTo(5)
+    }
+
 }

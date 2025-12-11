@@ -8,6 +8,10 @@ class Day11 {
         }
     }
 
+    fun solvePart1(graph: Map<String, List<String>>): Int {
+        return 0
+    }
+
     /*
         // Rekursive DFS
         fun dfsRecursive(graph: Map<Int, List<Int>>, start: Int, visited: MutableSet<Int> = mutableSetOf()) {
