@@ -29,7 +29,7 @@ class Day11Test {
         )
 
         // act
-        val paths = Day11().solvePart1(graph)
+        val paths = Day11().part1(graph)
 
         // assert
         assertThat(paths).isEqualTo(5)

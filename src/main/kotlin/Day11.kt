@@ -8,28 +8,25 @@ class Day11 {
         }
     }
 
-    fun solvePart1(graph: Map<String, List<String>>): Int {
+    fun part1(graph: Map<String, List<String>>): Int {
         return dfsIterative(graph)
     }
 
     // Iterative DFS mit Stack
     fun dfsIterative(graph: Map<String, List<String>>): Int {
-        val visited = mutableSetOf<String>()
         val stack = ArrayDeque<String>()
         stack.addFirst("you")
         var paths = 0
 
         while (stack.isNotEmpty()) {
             val node = stack.removeFirst()
-            if (node in visited) continue
-            visited.add(node)
             if (node == "out") {
                 paths++
                 continue
             }
 
             for (neighbor in graph[node] ?: emptyList()) {
-                if (neighbor !in visited) stack.addFirst(neighbor)
+                stack.addFirst(neighbor)
             }
         }
         return paths
@@ -47,4 +44,12 @@ class Day11 {
 
      */
 
+}
+
+fun main() {
+    val day11 = Day11()
+    val graph = day11.readData("Day11_InputData.txt")
+
+    val part1 = day11.part1(graph)
+    println("Part 1: $part1")
 }
