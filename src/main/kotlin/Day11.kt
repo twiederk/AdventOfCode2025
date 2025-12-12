@@ -9,17 +9,17 @@ class Day11 {
     }
 
     fun part1(graph: Map<String, List<String>>): Int {
-        return dfsIterative(graph)
+        return dfsIterative(graph,)
     }
 
-    fun dfsIterative(graph: Map<String, List<String>>): Int {
+    fun dfsIterative(graph: Map<String, List<String>>, start: String = "you", target: String = "out"): Int {
         val stack = ArrayDeque<String>()
-        stack.addFirst("you")
+        stack.addFirst(start)
         var paths = 0
 
         while (stack.isNotEmpty()) {
             val node = stack.removeFirst()
-            if (node == "out") {
+            if (node == target) {
                 paths++
                 continue
             }
@@ -31,40 +31,27 @@ class Day11 {
         return paths
     }
 
-    fun dfsIterative2(graph: Map<String, List<String>>): List<Int> {
-        val stack = ArrayDeque<CableWork>()
-        stack.addFirst(CableWork("svr"))
-        val paths = mutableListOf<Int>()
-
-        while (stack.isNotEmpty()) {
-            val node = stack.removeFirst()
-            if (node.key == "fft" || node.key == "dac") {
-                node.count += 1
-            }
-            if (node.key == "out") {
-                paths.add(node.count)
-                continue
-            }
-
-            for (neighbor in graph[node.key] ?: emptyList()) {
-                val cableWork = CableWork(neighbor)
-                cableWork.count = node.count
-                stack.addFirst(cableWork)
-            }
-        }
-        return paths
-    }
 
     fun part2(graph: Map<String, List<String>>): Int {
-        val paths = dfsIterative2(graph)
-        return paths.count { it == 2 }
+        val svr_to_dac = dfsIterative(graph, "svr", "dac")
+        println("svr_to_dac = $svr_to_dac")
+        val dac_to_fft = dfsIterative(graph, "dac", "fft")
+        println("dac_to_fft = $dac_to_fft")
+        val fft_to_out = dfsIterative(graph, "fft", "out")
+        println("fft_to_out = $fft_to_out")
+        val svr_to_fft = dfsIterative(graph, "svr", "fft")
+        println("svr_to_fft = $svr_to_fft")
+        val fft_to_dac = dfsIterative(graph, "fft", "dac")
+        println("fft_to_dac = $fft_to_dac")
+        val dac_to_out = dfsIterative(graph, "dac", "out")
+        println("dac_to_out = $dac_to_out")
+
+        return svr_to_dac * dac_to_fft * fft_to_out +
+               svr_to_fft * fft_to_dac * dac_to_out
     }
 
 }
 
-data class CableWork(val key: String) {
-    var count: Int = 0
-}
 
 fun main() {
     val day11 = Day11()
