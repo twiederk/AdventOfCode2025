@@ -31,20 +31,25 @@ class Day11 {
         return paths
     }
 
-    fun dfsIterative2(graph: Map<String, List<String>>): List<List<String>> {
-        val stack = ArrayDeque<String>()
-        stack.addFirst("svr")
-        val paths = mutableListOf<List<String>>()
+    fun dfsIterative2(graph: Map<String, List<String>>): List<Int> {
+        val stack = ArrayDeque<CableWork>()
+        stack.addFirst(CableWork("svr"))
+        val paths = mutableListOf<Int>()
 
         while (stack.isNotEmpty()) {
             val node = stack.removeFirst()
-            if (node == "out") {
-                paths.add(listOf())
+            if (node.key == "fft" || node.key == "dac") {
+                node.count += 1
+            }
+            if (node.key == "out") {
+                paths.add(node.count)
                 continue
             }
 
-            for (neighbor in graph[node] ?: emptyList()) {
-                stack.addFirst(neighbor)
+            for (neighbor in graph[node.key] ?: emptyList()) {
+                val cableWork = CableWork(neighbor)
+                cableWork.count = node.count
+                stack.addFirst(cableWork)
             }
         }
         return paths
@@ -52,9 +57,13 @@ class Day11 {
 
     fun part2(graph: Map<String, List<String>>): Int {
         val paths = dfsIterative2(graph)
-        return paths.size
+        return paths.count { it == 2 }
     }
 
+}
+
+data class CableWork(val key: String) {
+    var count: Int = 0
 }
 
 fun main() {
@@ -63,4 +72,7 @@ fun main() {
 
     val part1 = day11.part1(graph)
     println("Part 1: $part1")
+
+    val part2 = day11.part2(graph)
+    println("Part 2: $part2")
 }
