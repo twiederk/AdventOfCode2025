@@ -6,7 +6,7 @@
 |-----:|------------------------|:-------:|:-------:|-------------|
 |  [1] | [Secret Entrance]      | &#9733; |         |             |
 |  [2] | [Gift Shop]            | &#9733; | &#9733; |             |
-|  [3] | [Lobby]                | &#9733; |         |             |
+|  [3] | [Lobby]                | &#9733; | &#9733; |             |
 |  [4] | [Printing Department]  | &#9733; | &#9733; |             |
 |  [5] | [Cafeteria]            | &#9733; |         | Ranges      |
 |  [6] | [Trash Compactor]      | &#9733; |         |             |
@@ -14,6 +14,8 @@
 |  [8] | [Playground]           |         |         |             |
 |  [9] | [Movie Theater]        | &#9733; |         |             |
 | [10] | [Factory]              | &#9733; |         | Pathfinding |
+| [11] | [Reactor]              | &#9733; |         | Pathfinding |
+| [12] | [Christmas Tree Farm]  | &#9733; |         | Pathfinding |
 
 ## Resources
 
@@ -30,6 +32,8 @@
 [8]: src/main/kotlin/Day08.kt
 [9]: src/main/kotlin/Day09.kt
 [10]: src/main/kotlin/Day10.kt
+[11]: src/main/kotlin/Day11.kt
+[12]: src/main/kotlin/Day12.kt
 
 [Secret Entrance]: https://adventofcode.com/2025/day/1
 [Gift Shop]: https://adventofcode.com/2025/day/2
@@ -41,3 +45,5 @@
 [Playground]: https://adventofcode.com/2025/day/8
 [Movie Theater]: https://adventofcode.com/2025/day/9
 [Factory]: https://adventofcode.com/2025/day/10
+[Reactor]: https://adventofcode.com/2025/day/11
+[Christmas Tree Farm]: https://adventofcode.com/2025/day/12

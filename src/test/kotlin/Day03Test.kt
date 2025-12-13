@@ -121,8 +121,19 @@ class Day03Test {
         val joltage = Day03().joltage12("888911112111")
 
         // assert
-        assertThat(joltage).isEqualTo(434234234278L)
+        assertThat(joltage).isEqualTo(888911112111L)
     }
 
+    @Test
+    fun solve_part2() {
+        // arrange
+        val data = Day03().readData("Day03_TestData.txt")
+
+        // act
+        val totalJoltage = Day03().totalJoltage12(data)
+
+        // assert
+        assertThat(totalJoltage).isEqualTo(3121910778619)
+    }
 }
 
