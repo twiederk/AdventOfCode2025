@@ -16,6 +16,30 @@ class Day12(
     fun part1(regions: List<Region>): Int {
         return regions.sumOf { fit(it) }
     }
+
+    companion object {
+        fun readShapes(filename: String): List<Int> {
+            val rawData = Resources.resourceAsString(filename)
+            return rawData.split("\n\n")
+                .dropLast(1)
+                .map { present -> present.count { it == '#' } }
+        }
+
+        fun readRegions(filename: String): List<Region> {
+            val rawData = Resources.resourceAsString(filename)
+            val rawRegions = rawData.split("\n\n")
+                .last()
+                .split("\n")
+            return rawRegions.map { line ->
+                Region(
+                    size = line.substringBefore("x").toInt() *
+                            line.substringAfter("x").substringBefore(":").toInt(),
+                    quantity = line.substringAfter(" ").split(" ").map { it.toInt() }
+                )
+            }
+        }
+
+    }
 }
 
 class Region(

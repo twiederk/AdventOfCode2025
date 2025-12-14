@@ -6,6 +6,28 @@ class Day12Test {
     private val shapes = listOf(7, 7, 7, 7, 7, 7)
 
     @Test
+    fun read_shapes() {
+        // act
+        val shapes = Day12.readShapes("Day12_TestData.txt")
+
+        // assert
+        assertThat(shapes).isEqualTo(shapes)
+    }
+
+    @Test
+    fun read_regions() {
+        // act
+        val shapes = Day12.readRegions("Day12_TestData.txt")
+
+        // assert
+        assertThat(shapes).isEqualTo(listOf(
+            Region(16, listOf(0, 0, 0, 0, 2, 0)),
+            Region(60, listOf(1, 0, 1, 0, 2, 2)),
+            Region(60, listOf(1, 0, 1, 0, 3, 2)),
+        ))
+    }
+
+    @Test
     fun example_1() {
         // arrange
         // 4x4: 0 0 0 0 2 0
