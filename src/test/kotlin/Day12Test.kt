@@ -8,10 +8,10 @@ class Day12Test {
     @Test
     fun read_shapes() {
         // act
-        val shapes = Day12.readShapes("Day12_TestData.txt")
+        val result = Day12.readShapes("Day12_TestData.txt")
 
         // assert
-        assertThat(shapes).isEqualTo(shapes)
+        assertThat(result).isEqualTo(shapes)
     }
 
     @Test

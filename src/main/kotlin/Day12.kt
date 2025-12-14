@@ -19,17 +19,17 @@ class Day12(
 
     companion object {
         fun readShapes(filename: String): List<Int> {
-            val rawData = Resources.resourceAsString(filename)
-            return rawData.split("\n\n")
+            val rawData = Resources.resourceAsText(filename)
+            return rawData.split("\r\n\r\n")
                 .dropLast(1)
                 .map { present -> present.count { it == '#' } }
         }
 
         fun readRegions(filename: String): List<Region> {
-            val rawData = Resources.resourceAsString(filename)
-            val rawRegions = rawData.split("\n\n")
+            val rawData = Resources.resourceAsText(filename)
+            val rawRegions = rawData.split("\r\n\r\n")
                 .last()
-                .split("\n")
+                .split("\r\n")
             return rawRegions.map { line ->
                 Region(
                     size = line.substringBefore("x").toInt() *
@@ -42,7 +42,7 @@ class Day12(
     }
 }
 
-class Region(
+data class Region(
     val size: Int,
     val quantity: List<Int>
 )
