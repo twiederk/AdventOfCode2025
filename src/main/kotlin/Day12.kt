@@ -46,3 +46,11 @@ data class Region(
     val size: Int,
     val quantity: List<Int>
 )
+
+fun main() {
+    val shapes = Day12.readShapes("Day12_InputData.txt")
+    val regions = Day12.readRegions("Day12_InputData.txt")
+    val day12 = Day12(shapes)
+    val part1 = day12.part1(regions)
+    println("Day 12 - Part 1: $part1")
+}

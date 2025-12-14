@@ -81,8 +81,7 @@ class Day12Test {
 
         // assert
         assertThat(result).isEqualTo(3)
-
-
     }
+
 }
 
