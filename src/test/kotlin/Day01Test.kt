@@ -116,16 +116,16 @@ class Day01Test {
     @Test
     fun countRounds_positive_90() {
         // act
-        val result = Day01().countRounds(90)
+        val result = Day01().countRounds(50, 90)
 
         // assert
-        assertThat(result).isEqualTo(0)
+        assertThat(result).isEqualTo(1)
     }
 
     @Test
     fun countRounds_positive_110() {
         // act
-        val result = Day01().countRounds(110)
+        val result = Day01().countRounds(50,110)
 
         // assert
         assertThat(result).isEqualTo(1)
@@ -134,16 +134,16 @@ class Day01Test {
     @Test
     fun countRounds_positive_250() {
         // act
-        val result = Day01().countRounds(250)
+        val result = Day01().countRounds(50,250)
 
         // assert
-        assertThat(result).isEqualTo(2)
+        assertThat(result).isEqualTo(3)
     }
 
     @Test
     fun countRounds_negative_90() {
         // act
-        val result = Day01().countRounds(-90)
+        val result = Day01().countRounds(50, -90)
 
         // assert
         assertThat(result).isEqualTo(1)
@@ -152,7 +152,7 @@ class Day01Test {
     @Test
     fun countRounds_negative_110() {
         // act
-        val result = Day01().countRounds(-110)
+        val result = Day01().countRounds(50, -110)
 
         // assert
         assertThat(result).isEqualTo(1)
@@ -161,10 +161,10 @@ class Day01Test {
     @Test
     fun countRounds_negative_250() {
         // act
-        val result = Day01().countRounds(-250)
+        val result = Day01().countRounds(50, -250)
 
         // assert
-        assertThat(result).isEqualTo(2)
+        assertThat(result).isEqualTo(3)
     }
 
     @Test

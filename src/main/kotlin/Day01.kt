@@ -1,4 +1,4 @@
-import kotlin.math.absoluteValue
+import kotlin.math.abs
 
 class Day01 {
 
@@ -45,18 +45,28 @@ class Day01 {
         var counter = 0
         for (rotation in rotations) {
             // count how many times we passed 0
-            val newPosition = dailWithoutNormalization(position, rotation)
-            counter += countRounds(newPosition)
+            val distance = rotation.substring(1).toInt()
+            counter += countRounds(position,distance)
             position = dail(position, rotation)
+            println("After dailing $rotation, position is $position with $counter rounds")
         }
         return counter
     }
 
-    fun countRounds(distance: Int): Int {
-        if (distance in -99..-1) {
-            return 1
+    fun countRounds(position: Int, distance: Int): Int {
+//        val numberOfZeroCrossings: Int = if (rotation > 0) {
+//            (dial + rotation) / 100
+//        } else when (dial) {
+//            0 -> -rotation / 100
+//            else -> (-rotation - dial + 100) / 100
+//        }
+
+        return if (distance > 0) {
+            (position + distance) / 100
+        } else when(distance) {
+            0 -> abs(distance / 100)
+            else -> abs((distance - position) / 100)
         }
-        return distance.absoluteValue / 100
     }
 
 }
