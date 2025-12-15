@@ -76,23 +76,23 @@ class Day01Test {
     }
 
     @Test
-    fun dailWithoutNormalization_around_R6() {
+    fun distance_R6() {
 
         // act
-        val result = Day01().dailWithoutNormalization(95, "R6")
+        val result = Day01().distance("R6")
 
         // assert
-        assertThat(result).isEqualTo(101)
+        assertThat(result).isEqualTo(6)
     }
 
     @Test
-    fun dailWithoutNormalization_around_L210() {
+    fun distance_L210() {
 
         // act
-        val result = Day01().dailWithoutNormalization(5, "L210")
+        val result = Day01().distance("L210")
 
         // assert
-        assertThat(result).isEqualTo(-205)
+        assertThat(result).isEqualTo(-210)
     }
 
     @Test
@@ -200,6 +200,15 @@ class Day01Test {
 
         // assert
         assertThat(result).isEqualTo(10)
+    }
+
+    @Test
+    fun part2_L5() {
+        // act
+        val result = Day01().countRounds(0, -5)
+
+        // assert
+        assertThat(result).isEqualTo(0)
     }
 
     @Test
