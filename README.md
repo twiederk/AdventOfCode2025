@@ -2,20 +2,20 @@
 
 ## Overview of the puzzles
 
-|  Day | Title                  | Part 1  | Part 2  | Notes                                          |
-|-----:|------------------------|:-------:|:-------:|------------------------------------------------|
-|  [1] | [Secret Entrance]      | &#9733; | &#9733; | Count how many times a dailer passing the zero |
-|  [2] | [Gift Shop]            | &#9733; | &#9733; |                                                |
-|  [3] | [Lobby]                | &#9733; | &#9733; |                                                |
-|  [4] | [Printing Department]  | &#9733; | &#9733; |                                                |
-|  [5] | [Cafeteria]            | &#9733; |         | Ranges                                         |
-|  [6] | [Trash Compactor]      | &#9733; |         | Octopus math (parsing)                         |
-|  [7] | [Laboratories]         | &#9733; |         | Timelines                                      |
-|  [8] | [Playground]           |         |         | Junction boxes (straight-line distance)        |
-|  [9] | [Movie Theater]        | &#9733; |         | Rectancle in area                              |
-| [10] | [Factory]              | &#9733; |         | Pathfinding (pressing buttons)                 |
-| [11] | [Reactor]              | &#9733; |         | Pathfinding + memory (svr, fft, dac, out)      |
-| [12] | [Christmas Tree Farm]  | &#9733; |    ?    |                                                |
+|  Day | Title                  | Part 1  | Part 2  | Notes                                                                                                 |
+|-----:|------------------------|:-------:|:-------:|-------------------------------------------------------------------------------------------------------|
+|  [1] | [Secret Entrance]      | &#9733; | &#9733; | Count how many times a dailer passing the zero. Needed help for part 2 from [day 1 of Todd Ginsberg]. |
+|  [2] | [Gift Shop]            | &#9733; | &#9733; | Find patterns in strings                                                                              |
+|  [3] | [Lobby]                | &#9733; | &#9733; | Extract largest number in strings of digits                                                           |
+|  [4] | [Printing Department]  | &#9733; | &#9733; | Count neighbors on 2d grid                                                                            |
+|  [5] | [Cafeteria]            | &#9733; | &#9733; | Check numbers fitting in ranges. Needed help for part 2 from [day 5 of Todd Ginsberg].                |
+|  [6] | [Trash Compactor]      | &#9733; |         | Octopus math (parsing)                                                                                |
+|  [7] | [Laboratories]         | &#9733; |         | Timelines                                                                                             |
+|  [8] | [Playground]           |         |         | Junction boxes (straight-line distance)                                                               |
+|  [9] | [Movie Theater]        | &#9733; |         | Rectancle in area                                                                                     |
+| [10] | [Factory]              | &#9733; |         | Pathfinding (pressing buttons)                                                                        |
+| [11] | [Reactor]              | &#9733; |         | Pathfinding + memory (svr, fft, dac, out)                                                             |
+| [12] | [Christmas Tree Farm]  | &#9733; |    ?    |                                                                                                       |
 
 ## Resources
 
@@ -47,3 +47,6 @@
 [Factory]: https://adventofcode.com/2025/day/10
 [Reactor]: https://adventofcode.com/2025/day/11
 [Christmas Tree Farm]: https://adventofcode.com/2025/day/12
+
+[day 1 of Todd Ginsberg]: https://todd.ginsberg.com/post/advent-of-code/2025/day1/
+[day 5 of Todd Ginsberg]: https://todd.ginsberg.com/post/advent-of-code/2025/day5/
