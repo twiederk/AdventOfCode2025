@@ -17,10 +17,6 @@
 | [11] | [Reactor]              | &#9733; |         | Pathfinding + memory (svr, fft, dac, out)                                                             |
 | [12] | [Christmas Tree Farm]  | &#9733; |    ?    |                                                                                                       |
 
-## Resources
-
-## To Do
-* Day04: Extract counting of roll in part2 in separate method
 
 [1]: src/main/kotlin/Day01.kt
 [2]: src/main/kotlin/Day02.kt
