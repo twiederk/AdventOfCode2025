@@ -40,7 +40,7 @@ class Day06() {
 }
 
 fun main() {
-    val (numbers, operators) = Day06().readData("Day06_InputData.txt")
+    val (numbers, operators) = Day06().readData("Day06_InputData_modified.txt")
 
     val part1 = Day06().part1(numbers, operators)
     println("Result part1: $part1")

@@ -16,7 +16,7 @@ class Day06Test {
         // arrange
 
         // act
-        val (numbers, operators) = Day06().readData("Day06_TestData.txt")
+        val (numbers, operators) = Day06().readData("Day06_TestData_modified.txt")
 
         // assert
         assertThat(numbers).containsExactly(
