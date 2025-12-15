@@ -23,6 +23,23 @@ infix fun LongRange.overlaps(other: LongRange): Boolean = first <= other.last &&
  */
 infix fun LongRange.fullyOverlaps(other: LongRange): Boolean = first <= other.first && last >= other.last
 
+
+fun Iterable<LongRange>.combineRanges(): List<LongRange> =
+    buildList {
+        this@combineRanges.sortedBy { it.first }
+            .fold(null as LongRange?) { previous, current ->
+                when {
+                    previous == null -> current
+                    current.first > previous.last + 1 -> {
+                        add(previous)
+                        current
+                    }
+                    else -> previous.first .. maxOf(previous.last, current.last)
+                }
+            }?.let { add(it) }
+    }
+
+
 internal object Resources {
     fun resourceAsString(fileName: String, delimiter: String = ""): String =
         resourceAsListOfString(fileName).reduce { a, b -> "$a$delimiter$b" }

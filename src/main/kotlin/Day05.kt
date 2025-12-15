@@ -37,18 +37,8 @@ class Day05 {
     }
 
     fun solvePart2(ranges: List<LongRange>): Long {
-        val minStart = ranges.minOf { it.first }
-        val maxEnd = ranges.maxOf { it.last }
-        var count = 0L
-        for (value in minStart..maxEnd) {
-            for (range in ranges) {
-                if (value in range) {
-                    count++
-                    break
-                }
-            }
-        }
-        return count
+        val combinedRanges = ranges.combineRanges()
+        return combinedRanges.sumOf { it.last - it.first + 1 }
     }
 
 
