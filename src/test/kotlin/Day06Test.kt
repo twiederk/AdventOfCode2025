@@ -74,4 +74,27 @@ class Day06Test {
         assertThat(result).isEqualTo(4277556)
     }
 
+    @Test
+    fun read_indices() {
+        // act
+        val indices = Day06().readIndices("Day06_TestData.txt")
+
+        // assert
+        assertThat(indices).containsExactly(0, 4, 8, 12)
+    }
+
+
+    @Test
+    fun readOperators() {
+        // arrange
+        val rawData = "*   +   *   +"
+        val indices = listOf(0, 4, 8, 12)
+
+        // act
+        val operators = Day06().readOperators(rawData, indices)
+
+        // assert
+        assertThat(operators).containsExactly('*', '+', '*', '+')
+    }
+
 }

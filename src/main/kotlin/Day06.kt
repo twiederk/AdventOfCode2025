@@ -1,4 +1,4 @@
-class Day06() {
+class Day06 {
     fun calculateColumn(numbers: List<List<Int>>, operator: Char, columnId: Int): Long {
         when (operator) {
             '+' -> {
@@ -35,6 +35,26 @@ class Day06() {
             finalResult += calculateColumn(numbers, operators[columnId], columnId)
         }
         return finalResult
+    }
+
+    fun readIndices(fileName: String): List<Int> {
+        val rawData = Resources.resourceAsListOfString(fileName)
+        val indices = mutableListOf<Int>()
+        val line = rawData.last()
+        for ((index, operator) in line.withIndex()) {
+            if (operator != ' ') {
+                indices.add(index)
+            }
+        }
+        return indices
+    }
+
+    fun readOperators(rawData: String, indices: List<Int>): List<Char> {
+        val operators = mutableListOf<Char>()
+        for (index in indices) {
+            operators.add(rawData[index])
+        }
+        return operators
     }
 
 }
