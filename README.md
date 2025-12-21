@@ -9,7 +9,7 @@
 |  [3] | [Lobby]                | &#9733; | &#9733; | Extract largest number in strings of digits                                                           |
 |  [4] | [Printing Department]  | &#9733; | &#9733; | Count neighbors on 2d grid                                                                            |
 |  [5] | [Cafeteria]            | &#9733; | &#9733; | Check numbers fitting in ranges. Needed help for part 2 from [day 5 of Todd Ginsberg].                |
-|  [6] | [Trash Compactor]      | &#9733; |         | Octopus math (parsing)                                                                                |
+|  [6] | [Trash Compactor]      | &#9733; | &#9733; | Octopus math: Numbers in columns (parsing)                                                            |
 |  [7] | [Laboratories]         | &#9733; |         | Timelines                                                                                             |
 |  [8] | [Playground]           |         |         | Junction boxes (straight-line distance)                                                               |
 |  [9] | [Movie Theater]        | &#9733; |         | Rectancle in area                                                                                     |
