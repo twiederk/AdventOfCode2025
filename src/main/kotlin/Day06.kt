@@ -80,6 +80,26 @@ class Day06 {
         return allNumbers
     }
 
+    fun part2(fileName: String): Long {
+        val rawData = Resources.resourceAsListOfString(fileName)
+        val indices = readIndices(fileName)
+        val operators = readOperators(rawData[rawData.lastIndex], indices)
+        val allNumbers = readNumbers(rawData.dropLast(1), indices)
+        var totalSum = 0L
+        operators.zip(allNumbers).forEach { (operator, numbers) ->
+            totalSum += calculateColumn2(operator, numbers)
+        }
+        return totalSum
+    }
+
+    private fun calculateColumn2(operator: Char, numbers: List<Int>): Long {
+        return when (operator) {
+            '+' -> numbers.sumOf { it.toLong() }
+            '*' -> numbers.fold(1L) { acc, num -> acc * num }
+            else -> throw IllegalArgumentException("Unsupported operator: $operator")
+        }
+    }
+
 }
 
 fun main() {
@@ -87,4 +107,7 @@ fun main() {
 
     val part1 = Day06().part1(numbers, operators)
     println("Result part1: $part1")
+
+    val part2 = Day06().part2("Day06_InputData.txt")
+    println("Result part2: $part2")
 }

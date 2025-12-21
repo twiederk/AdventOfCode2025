@@ -118,4 +118,14 @@ class Day06Test {
         assertThat(numbers[3]).containsExactly(623, 431, 4)
     }
 
+    @Test
+    fun solve_part2() {
+
+        // act
+        val result = Day06().part2("Day06_TestData.txt")
+
+        // assert
+        assertThat(result).isEqualTo(3263827)
+    }
+
 }
