@@ -61,20 +61,22 @@ class Day06 {
 
     fun readNumbers(rawData: List<String>, indices: List<Int>): List<List<Int>> {
         val allNumbers = mutableListOf<List<Int>>()
-        val numbers = mutableListOf<Int>()
-        val start = indices[0]
-        val end = indices[1] - 2
-        for (index in start..end) {
-            var numberStr = ""
-            for (row in rawData.indices) {
-                val char = rawData[row][index]
-                if (char != ' ') {
-                    numberStr += char
+        indices.windowed(2, 1, true).forEach {
+            val numbers = mutableListOf<Int>()
+            val start = it[0]
+            val end = if (it.size == 1) rawData[0].length - 1 else it[1] - 2
+            for (index in start..end) {
+                var numberStr = ""
+                for (row in rawData.indices) {
+                    val char = rawData[row][index]
+                    if (char != ' ') {
+                        numberStr += char
+                    }
                 }
+                numbers.add(numberStr.toInt())
             }
-            numbers.add(numberStr.toInt())
+            allNumbers.add(numbers.toList())
         }
-        allNumbers.add(numbers)
         return allNumbers
     }
 

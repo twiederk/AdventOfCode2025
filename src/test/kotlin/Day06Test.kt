@@ -101,8 +101,8 @@ class Day06Test {
     fun readNumbers() {
         // arrange
         val rawData = listOf(
-            "123 328  51 64",
-            " 45 64  387 23",
+            "123 328  51 640",
+            " 45 64  387 230",
             "  6 98  215 314",
         )
         val indices = listOf(0, 4, 8, 12)
@@ -111,7 +111,11 @@ class Day06Test {
         val numbers: List<List<Int>> = Day06().readNumbers(rawData, indices)
 
         // assert
+        assertThat(numbers).hasSize(4)
         assertThat(numbers[0]).containsExactly(1, 24, 356)
+        assertThat(numbers[1]).containsExactly(369, 248, 8)
+        assertThat(numbers[2]).containsExactly(32, 581, 175)
+        assertThat(numbers[3]).containsExactly(623, 431, 4)
     }
 
 }
