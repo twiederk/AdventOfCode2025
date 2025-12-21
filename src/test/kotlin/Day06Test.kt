@@ -97,4 +97,21 @@ class Day06Test {
         assertThat(operators).containsExactly('*', '+', '*', '+')
     }
 
+    @Test
+    fun readNumbers() {
+        // arrange
+        val rawData = listOf(
+            "123 328  51 64",
+            " 45 64  387 23",
+            "  6 98  215 314",
+        )
+        val indices = listOf(0, 4, 8, 12)
+
+        // act
+        val numbers: List<List<Int>> = Day06().readNumbers(rawData, indices)
+
+        // assert
+        assertThat(numbers[0]).containsExactly(1, 24, 356)
+    }
+
 }

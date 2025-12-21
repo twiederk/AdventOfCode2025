@@ -8,6 +8,7 @@ class Day06 {
                 }
                 return sum
             }
+
             '*' -> {
                 var product = 1L
                 for (i in numbers.indices) {
@@ -15,6 +16,7 @@ class Day06 {
                 }
                 return product
             }
+
             else -> throw IllegalArgumentException("Unsupported operator: $operator")
         }
     }
@@ -26,7 +28,7 @@ class Day06 {
         }
         val operators = rawData[rawData.lastIndex].split(",")
             .map { it[0] }
-        return Pair(numbers,    operators)
+        return Pair(numbers, operators)
     }
 
     fun part1(numbers: List<List<Int>>, operators: List<Char>): Long {
@@ -55,6 +57,25 @@ class Day06 {
             operators.add(rawData[index])
         }
         return operators
+    }
+
+    fun readNumbers(rawData: List<String>, indices: List<Int>): List<List<Int>> {
+        val allNumbers = mutableListOf<List<Int>>()
+        val numbers = mutableListOf<Int>()
+        val start = indices[0]
+        val end = indices[1] - 2
+        for (index in start..end) {
+            var numberStr = ""
+            for (row in rawData.indices) {
+                val char = rawData[row][index]
+                if (char != ' ') {
+                    numberStr += char
+                }
+            }
+            numbers.add(numberStr.toInt())
+        }
+        allNumbers.add(numbers)
+        return allNumbers
     }
 
 }
