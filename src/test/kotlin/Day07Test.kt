@@ -141,6 +141,42 @@ class Day07Test {
         assertThat(result[8]).isEqualTo(1)
     }
 
+    @Test
+    fun downwardTimeline_row_4() {
+        // arrange
+        val beams = mapOf(6 to 1L, 8 to 1L)
+
+        // act
+        val result = Day07().downwardTimeline(grid, beams, 4)
+
+        // assert
+        assertThat(result).hasSize(3)
+        assertThat(result[5]).isEqualTo(1)
+        assertThat(result[7]).isEqualTo(2)
+        assertThat(result[9]).isEqualTo(1)
+    }
+
+
+    //    ....1.3.3.1....  (4,1) (6,3) (8,3) (10,1)
+    //    ....^.^...^....
+    //    ...1.4.331.1...  (3,1) (5,4) (7,3) (8,3) (9,1) (11,1)
+    @Test
+    fun downwardTimeline_row_8() {
+        // arrange
+        val beams = mapOf(4 to 1L, 6 to 3L, 8 to 3L, 10 to 1L)
+
+        // act
+        val result = Day07().downwardTimeline(grid, beams, 8)
+
+        // assert
+        assertThat(result).hasSize(6)
+        assertThat(result[3]).isEqualTo(1)
+        assertThat(result[5]).isEqualTo(4)
+        assertThat(result[7]).isEqualTo(3)
+        assertThat(result[8]).isEqualTo(3)
+        assertThat(result[9]).isEqualTo(1)
+        assertThat(result[11]).isEqualTo(1)
+    }
 
     @Test
     fun solve_part2() {
