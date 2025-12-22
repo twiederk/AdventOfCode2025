@@ -10,7 +10,7 @@
 |  [4] | [Printing Department]  | &#9733; | &#9733; | Count neighbors on 2d grid                                                                            |
 |  [5] | [Cafeteria]            | &#9733; | &#9733; | Check numbers fitting in ranges. Needed help for part 2 from [day 5 of Todd Ginsberg].                |
 |  [6] | [Trash Compactor]      | &#9733; | &#9733; | Octopus math: Numbers in columns (parsing)                                                            |
-|  [7] | [Laboratories]         | &#9733; |         | Timelines                                                                                             |
+|  [7] | [Laboratories]         | &#9733; | &#9733; | Rays falling downwards and getting split at junctions                                                 |
 |  [8] | [Playground]           |         |         | Junction boxes (straight-line distance)                                                               |
 |  [9] | [Movie Theater]        | &#9733; |         | Rectancle in area                                                                                     |
 | [10] | [Factory]              | &#9733; |         | Pathfinding (pressing buttons)                                                                        |

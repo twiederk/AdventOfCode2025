@@ -57,13 +57,14 @@ class Day07 {
 
 
 
-//    fun part2(grid: List<String>): Int {
-//        var beams = listOf(startingPosition(grid[0]))
-//        for (row in 2 until grid.size step 2) {
-//            beams = downwardTimeline(grid, beams, row)
-//        }
-//        return beams.size
-//    }
+    fun part2(grid: List<String>): Long {
+        var beams = mapOf(startingPosition(grid[0]) to 1L)
+        for (row in 2 until grid.size step 2) {
+            beams = downwardTimeline(grid, beams, row)
+        }
+        val totalBeams = beams.values.sum()
+        return totalBeams
+    }
 
 }
 
@@ -73,6 +74,6 @@ fun main() {
     val part1 = Day07().part1(grid)
     println("Part 1: $part1")
 
-//    val part2 = Day07().part2(grid)
-//    println("Part 2: $part2")
+    val part2 = Day07().part2(grid)
+    println("Part 2: $part2")
 }

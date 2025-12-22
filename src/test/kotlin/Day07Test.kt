@@ -180,11 +180,11 @@ class Day07Test {
 
     @Test
     fun solve_part2() {
-//        // act
-//        val result: Int = Day07().part2(grid)
-//
-//        // assert
-//        assertThat(result).isEqualTo(40)
+        // act
+        val result = Day07().part2(grid)
+
+        // assert
+        assertThat(result).isEqualTo(40L)
     }
 
 }
