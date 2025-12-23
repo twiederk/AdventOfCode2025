@@ -109,7 +109,7 @@ class Day08Test  {
     @Test
     fun circuit_contains_junction() {
         // arrange
-        val allCircuits = mutableListOf<Circuit>(
+        val allCircuits = mutableListOf(
             setOf(Point3D(0,0,0))
         )
 
@@ -120,12 +120,81 @@ class Day08Test  {
         assertThat(result).isEqualTo(allCircuits[0])
     }
 
+    @Test
+    fun connect_junctions_both_in_none_circuit_add_both_to_new_circuit() {
+        // arrange
+        val allCircuits = mutableListOf<Circuit>()
+        val pointPair = PointPair(Point3D(0,0,0), Point3D(1,1,1))
+
+        // act
+        val result = Day08().connect(allCircuits, pointPair)
+
+        // assert
+        assertThat(result).isEqualTo(listOf(setOf(Point3D(0,0,0), Point3D(1,1,1))))
+    }
+
+    @Test
+    fun connect_junctions_pointA_in_a_circuit_add_both_to_existing_circuit() {
+        // arrange
+        val allCircuits = mutableListOf(setOf(Point3D(0,0,0)))
+        val pointPair = PointPair(Point3D(0,0,0), Point3D(1,1,1))
+
+        // act
+        val result = Day08().connect(allCircuits, pointPair)
+
+        // assert
+        assertThat(result).isEqualTo(listOf(setOf(Point3D(0,0,0), Point3D(1,1,1))))
+    }
+
+    @Test
+    fun connect_junctions_pointB_in_a_circuit_add_both_to_existing_circuit() {
+        // arrange
+        val allCircuits = mutableListOf(setOf(Point3D(1,1,1)))
+        val pointPair = PointPair(Point3D(0,0,0), Point3D(1,1,1))
+
+        // act
+        val result = Day08().connect(allCircuits, pointPair)
+
+        // assert
+        assertThat(result).isEqualTo(listOf(setOf(Point3D(0,0,0), Point3D(1,1,1))))
+    }
+
+    @Test
+    fun connect_junctions_both_in_same_circuit_nothing_happens() {
+        // arrange
+        val allCircuits = mutableListOf(setOf(Point3D(0,0,0), Point3D(1,1,1)))
+        val pointPair = PointPair(Point3D(0,0,0), Point3D(1,1,1))
+
+        // act
+        val result = Day08().connect(allCircuits, pointPair)
+
+        // assert
+        assertThat(result).isEqualTo(listOf(setOf(Point3D(0,0,0), Point3D(1,1,1))))
+    }
+
+    @Test
+    fun connect_junctions_both_are_in_different_circuits_merge_the_existing_circuits() {
+        // arrange
+        val allCircuits = mutableListOf(
+            setOf(Point3D(0,0,0), Point3D(2,2,2)),
+            setOf(Point3D(1,1,1), Point3D(3,3,3)),
+            )
+        val pointPair = PointPair(Point3D(0,0,0), Point3D(1,1,1))
+
+        // act
+        val result = Day08().connect(allCircuits, pointPair)
+
+        // assert
+        assertThat(result).isEqualTo(listOf(
+            setOf(Point3D(0,0,0), Point3D(1,1,1), Point3D(2,2,2), Point3D(3,3,3)))
+        )
+    }
+
     // Inbox of tests
     /*
     check if circuit contains point
 
-    both are in none circuit => add both to new circuit
-    one  is  in one  circuit => add both to existing circuit
+    + one  is  in one  circuit => add both to existing circuit
     both are in same circuit => nothing happens
     both are in different circuit => merge the existing circuit to one (new) circuit
      */
