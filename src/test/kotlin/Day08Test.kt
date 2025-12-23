@@ -1,5 +1,6 @@
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
+import kotlin.math.sqrt
 
 class Day08Test  {
 
@@ -33,5 +34,15 @@ class Day08Test  {
         )
     }
 
+    @Test
+    fun straightLineDistance() {
+
+        // act
+        val distance = Point3D(0,0,0).straightLineDistance(Point3D(3,3,3))
+
+        // assert
+        val expected = sqrt((3 * 3 + 3 * 3 + 3 * 3).toDouble())
+        assertThat(distance).isEqualTo(expected)
+    }
 
 }

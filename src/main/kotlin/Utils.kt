@@ -1,6 +1,8 @@
 import java.io.File
 import java.net.URI
 import kotlin.math.abs
+import kotlin.math.pow
+import kotlin.math.sqrt
 
 
 /**
@@ -34,7 +36,8 @@ fun Iterable<LongRange>.combineRanges(): List<LongRange> =
                         add(previous)
                         current
                     }
-                    else -> previous.first .. maxOf(previous.last, current.last)
+
+                    else -> previous.first..maxOf(previous.last, current.last)
                 }
             }?.let { add(it) }
     }
@@ -118,7 +121,7 @@ data class Point2D(
         // south_east
         if (y + 1 < grid.size && x + 1 < grid[0].length) neighbors.add(this + SOUTH_EAST)
         // south_west
-        if (y + 1 < grid.size && x - 1  >= 0) neighbors.add(this + SOUTH_WEST)
+        if (y + 1 < grid.size && x - 1 >= 0) neighbors.add(this + SOUTH_WEST)
         return neighbors
     }
 
@@ -149,4 +152,13 @@ data class Point3D(
     val x: Int,
     val y: Int,
     val z: Int,
-)
+) {
+    fun straightLineDistance(other: Point3D): Double =
+        sqrt(
+        abs(x - other.x).toDouble().pow(2) +
+            abs(y - other.y).toDouble().pow(2) +
+            abs(z - other.z).toDouble().pow(2)
+        )
+
+
+}
