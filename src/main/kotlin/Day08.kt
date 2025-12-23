@@ -8,3 +8,16 @@ class Day08 {
     }
 
 }
+
+class PointPair(
+    val pointA: Point3D,
+    val pointB: Point3D
+) : Comparable<PointPair> {
+    val distance: Double by lazy {
+        pointA.straightLineDistance(pointB)
+    }
+
+    override fun compareTo(other: PointPair): Int {
+        return this.distance.compareTo(other.distance)
+    }
+}

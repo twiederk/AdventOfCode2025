@@ -45,4 +45,53 @@ class Day08Test  {
         assertThat(distance).isEqualTo(expected)
     }
 
+    @Test
+    fun compareDistance_lower() {
+        // arrange
+        val pointA = Point3D(0,0,0)
+        val pointB = Point3D(1,1,1)
+        val pointC = Point3D(2,2,2)
+
+        val pairAB = PointPair(pointA, pointB)
+        val pairAC = PointPair(pointA, pointC)
+
+        // act
+        val result = pairAB.compareTo(pairAC)
+
+        // assert
+        assertThat(result).isEqualTo(-1)
+    }
+
+    @Test
+    fun compareDistance_higher() {
+        // arrange
+        val pointA = Point3D(0,0,0)
+        val pointB = Point3D(1,1,1)
+        val pointC = Point3D(2,2,2)
+
+        val pairAB = PointPair(pointA, pointB)
+        val pairAC = PointPair(pointA, pointC)
+
+        // act
+        val result = pairAC.compareTo(pairAB)
+
+        // assert
+        assertThat(result).isEqualTo(1)
+    }
+
+    @Test
+    fun compareDistance_equal() {
+        // arrange
+        val pointA = Point3D(0,0,0)
+        val pointB = Point3D(1,1,1)
+
+        val pairAB = PointPair(pointA, pointB)
+
+        // act
+        val result = pairAB.compareTo(pairAB)
+
+        // assert
+        assertThat(result).isEqualTo(0)
+    }
+
 }
