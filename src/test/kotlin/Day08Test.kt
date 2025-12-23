@@ -102,9 +102,32 @@ class Day08Test  {
         val pointPairs = Day08().pointPairsSorted(points)
 
         // assert
-        println(pointPairs)
         assertThat(pointPairs).hasSize(190)
         assertThat(pointPairs[0]).isEqualTo(PointPair(Point3D(162,817,812), Point3D(425,690,689)))
     }
+
+    @Test
+    fun circuit_contains_junction() {
+        // arrange
+        val allCircuits = mutableListOf<Circuit>(
+            setOf(Point3D(0,0,0))
+        )
+
+        // act
+        val result = Day08().findCircuit(allCircuits, Point3D(0,0,0))
+
+        // assert
+        assertThat(result).isEqualTo(allCircuits[0])
+    }
+
+    // Inbox of tests
+    /*
+    check if circuit contains point
+
+    both are in none circuit => add both to new circuit
+    one  is  in one  circuit => add both to existing circuit
+    both are in same circuit => nothing happens
+    both are in different circuit => merge the existing circuit to one (new) circuit
+     */
 
 }

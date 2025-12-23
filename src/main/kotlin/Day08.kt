@@ -1,3 +1,5 @@
+typealias Circuit = Set<Point3D>
+
 class Day08 {
 
     fun readData(fileName: String): List<Point3D> {
@@ -15,6 +17,12 @@ class Day08 {
             }
         }
         return pairs.sorted()
+    }
+
+    fun findCircuit(allCircuits: List<Circuit>, point3D: Point3D): Circuit? {
+        return allCircuits.find { circuit ->
+            circuit.contains(point3D)
+        }
     }
 
 }
