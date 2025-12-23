@@ -140,7 +140,13 @@ data class Point2D(
 
 }
 
-data class LongPoint(
+data class Point2DL(
     val x: Long,
     val y: Long
+)
+
+data class Point3D(
+    val x: Int,
+    val y: Int,
+    val z: Int,
 )
