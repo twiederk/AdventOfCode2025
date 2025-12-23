@@ -25,7 +25,7 @@ class Day08 {
         }
     }
 
-    fun connect(allCircuits: MutableList<Circuit>, pointPair: PointPair): List<Circuit> {
+    fun connect(allCircuits: MutableList<Circuit>, pointPair: PointPair): MutableList<Circuit> {
         val circuitA = findCircuit(allCircuits, pointPair.pointA)
         val circuitB = findCircuit(allCircuits, pointPair.pointB)
         return when {
@@ -64,6 +64,21 @@ class Day08 {
         }
     }
 
+    fun multiplyThreeLargestCircuits(allCircuits: List<Circuit>): Int {
+        allCircuits.sortedBy { it.size }.takeLast(3).let {
+            return it[0].size * it[1].size * it[2].size
+        }
+    }
+
+    fun part1(allPoints: List<Point3D>, maxConnections: Int): Int {
+        var allCircuits = mutableListOf<Circuit>()
+        val pointPairs = pointPairsSorted(allPoints)
+        for (index in 0 until maxConnections) {
+            allCircuits = connect(allCircuits, pointPairs[index])
+        }
+        return multiplyThreeLargestCircuits(allCircuits)
+    }
+
 }
 
 data class PointPair(
@@ -77,4 +92,10 @@ data class PointPair(
     override fun compareTo(other: PointPair): Int {
         return this.distance.compareTo(other.distance)
     }
+}
+
+fun main() {
+    val allPoints = Day08().readData("Day08_InputData.txt")
+    val part1 = Day08().part1(allPoints, 1000)
+    println("Part 1: $part1")
 }

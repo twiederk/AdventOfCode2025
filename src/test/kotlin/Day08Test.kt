@@ -4,7 +4,7 @@ import kotlin.math.sqrt
 
 class Day08Test  {
 
-    private val points = listOf<Point3D>(
+    private val points = listOf(
         Point3D(162,817,812),
         Point3D(57,618,57),
         Point3D(906,360,560),
@@ -188,6 +188,29 @@ class Day08Test  {
         assertThat(result).isEqualTo(listOf(
             setOf(Point3D(0,0,0), Point3D(1,1,1), Point3D(2,2,2), Point3D(3,3,3)))
         )
+    }
+
+    @Test
+    fun multiplyThreeLargestCircuits() {
+        // act
+        val result = Day08().multiplyThreeLargestCircuits(listOf(
+            setOf(Point3D(0,0,0)),
+            setOf(Point3D(1,1,1), Point3D(2,2,2)),
+            setOf(Point3D(3,3,3), Point3D(4,4,4), Point3D(5,5,5)),
+            setOf(Point3D(6,6,6), Point3D(7,7,7), Point3D(8,8,8), Point3D(9,9,9))
+        ))
+
+        // assert
+        assertThat(result).isEqualTo(24) // 2 * 3 * 4 = 24
+    }
+
+    @Test
+    fun solve_part1() {
+        // act
+        val result = Day08().part1(points, 10)
+
+        // assert
+        assertThat(result).isEqualTo(40)
     }
 
     // Inbox of tests
