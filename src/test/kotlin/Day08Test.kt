@@ -213,13 +213,13 @@ class Day08Test  {
         assertThat(result).isEqualTo(40)
     }
 
-    // Inbox of tests
-    /*
-    check if circuit contains point
+    @Test
+    fun solve_part2() {
+        // act
+        val result = Day08().part2(points)
 
-    + one  is  in one  circuit => add both to existing circuit
-    both are in same circuit => nothing happens
-    both are in different circuit => merge the existing circuit to one (new) circuit
-     */
+        // assert
+        assertThat(result).isEqualTo(25272)
+    }
 
 }

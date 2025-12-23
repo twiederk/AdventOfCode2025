@@ -79,6 +79,18 @@ class Day08 {
         return multiplyThreeLargestCircuits(allCircuits)
     }
 
+    fun part2(allPoints: List<Point3D>): Int {
+        var allCircuits = mutableListOf<Circuit>()
+        val pointPairs = pointPairsSorted(allPoints)
+        for (pointPair in pointPairs) {
+            allCircuits = connect(allCircuits, pointPair)
+            if (allCircuits.size == 1 && allCircuits[0].size == allPoints.size) {
+                return pointPair.pointA.x * pointPair.pointB.x
+            }
+        }
+        return -1
+    }
+
 }
 
 data class PointPair(
@@ -96,6 +108,10 @@ data class PointPair(
 
 fun main() {
     val allPoints = Day08().readData("Day08_InputData.txt")
+
     val part1 = Day08().part1(allPoints, 1000)
     println("Part 1: $part1")
+
+    val part2 = Day08().part2(allPoints)
+    println("Part 2: $part2")
 }
