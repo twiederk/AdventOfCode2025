@@ -7,9 +7,19 @@ class Day08 {
         }
     }
 
+    fun pointPairsSorted(points: List<Point3D>): List<PointPair> {
+        val pairs = mutableListOf<PointPair>()
+        for (i in points.indices) {
+            for (j in i + 1 until points.size) {
+                pairs.add(PointPair(points[i], points[j]))
+            }
+        }
+        return pairs.sorted()
+    }
+
 }
 
-class PointPair(
+data class PointPair(
     val pointA: Point3D,
     val pointB: Point3D
 ) : Comparable<PointPair> {
