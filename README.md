@@ -12,7 +12,7 @@
 |  [6] | [Trash Compactor]      | &#9733; | &#9733; | Octopus math: Numbers in columns (parsing)                                                            |
 |  [7] | [Laboratories]         | &#9733; | &#9733; | Rays falling downwards and getting split at junctions                                                 |
 |  [8] | [Playground]           | &#9733; | &#9733; | Junction boxes (straight-line distance)                                                               |
-|  [9] | [Movie Theater]        | &#9733; |         | Rectancle in area                                                                                     |
+|  [9] | [Movie Theater]        | &#9733; | &#9733; | Rectancle in area                                                                                     |
 | [10] | [Factory]              | &#9733; |         | Pathfinding (pressing buttons)                                                                        |
 | [11] | [Reactor]              | &#9733; |         | Pathfinding + memory (svr, fft, dac, out)                                                             |
 | [12] | [Christmas Tree Farm]  | &#9733; |    ?    | Fitting shapes in a box                                                                               |
