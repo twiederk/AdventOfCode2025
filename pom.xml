@@ -91,6 +91,11 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>tools.aqua</groupId>
+            <artifactId>z3-turnkey</artifactId>
+            <version>4.14.1</version>
+        </dependency>
     </dependencies>
 
 </project>
