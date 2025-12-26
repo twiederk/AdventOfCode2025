@@ -7,6 +7,7 @@ class Day10Test {
 //    https://www.reddit.com/r/adventofcode/comments/1pity70/2025_day_10_solutions/
 //    https://www.reddit.com/r/adventofcode/comments/1pk87hl/2025_day_10_part_2_bifurcate_your_way_to_victory/
 //    https://github.com/ash42/adventofcode/tree/main/adventofcode2025/src/nl/michielgraat/adventofcode2025/day10
+//    https://github.com/werner77/AdventOfCode/tree/master/src%2Fmain%2Fkotlin%2Fcom%2Fbehindmedia%2Fadventofcode
 
     @Test
     fun next_state() {
