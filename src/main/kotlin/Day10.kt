@@ -1,3 +1,7 @@
+import com.microsoft.z3.Context
+import com.microsoft.z3.IntExpr
+import com.microsoft.z3.IntNum
+import com.microsoft.z3.Status
 import java.util.*
 
 class Day10 {
@@ -38,9 +42,15 @@ class Day10 {
         }
     }
 
-    fun part2(joltage: List<List<Int>>, buttons: List<List<List<Int>>>): Int {
+    fun part2dijkstra(joltage: List<List<Int>>, buttons: List<List<List<Int>>>): Int {
         return joltage.zip(buttons).sumOf { (jolt, button) ->
             dijkstraPart2(jolt, button)
+        }
+    }
+
+    fun part2z3(joltage: List<List<Int>>, buttons: List<List<List<Int>>>): Int {
+        return joltage.zip(buttons).sumOf { (jolt, button) ->
+            z3Part2(jolt, button)
         }
     }
 
@@ -61,9 +71,10 @@ class Day10 {
                             .map { number -> number.toInt() }
                     })
 
-            joltage.add(line.substringAfter(") {").substringBefore("}")
-                .split(',')
-                .map { it.toInt() } )
+            joltage.add(
+                line.substringAfter(") {").substringBefore("}")
+                    .split(',')
+                    .map { it.toInt() })
         }
         return Triple(lights, buttons, joltage)
     }
@@ -85,7 +96,41 @@ class Day10 {
                     seen += engineState
                 }
         }
-        throw IllegalStateException("No route to goal")    }
+        throw IllegalStateException("No route to goal")
+    }
+
+    fun z3Part2(joltage: List<Int>, buttons: List<List<Int>>): Int {
+        val ctx = Context()
+        val solver = ctx.mkOptimize()
+        val zero = ctx.mkInt(0)
+
+        // Counts number of presses for each button, and ensures it is positive.
+        val z3buttons = buttons.indices
+            .map { ctx.mkIntConst("button#$it") }
+            .onEach { button -> solver.Add(ctx.mkGe(button, zero)) }
+            .toTypedArray()
+
+        // For each joltage counter, require that the sum of presses of all buttons that increment it is equal to the
+        // target value specified in the config.
+        joltage.forEachIndexed { counter, targetValue ->
+            val buttonsThatIncrement = buttons
+                .withIndex()
+                .filter { (_, counters) -> counter in counters }
+                .map { z3buttons[it.index] }
+                .toTypedArray()
+            val target = ctx.mkInt(targetValue)
+
+            val sumOfPresses = ctx.mkAdd(*buttonsThatIncrement) as IntExpr
+            solver.Add(ctx.mkEq(sumOfPresses, target))
+        }
+
+        val presses = ctx.mkIntConst("presses")
+        solver.Add(ctx.mkEq(presses, ctx.mkAdd(*z3buttons)))
+        solver.MkMinimize(presses)
+
+        if (solver.Check() != Status.SATISFIABLE) error("No solution found for machine: $buttons $joltage.")
+        return solver.model.evaluate(presses, false).let { it as IntNum }.int
+    }
 }
 
 data class EngineWork(
@@ -143,6 +188,7 @@ data class JoltageState(
         return buttons.map { next(it) }
     }
 }
+
 fun main() {
     val day10 = Day10()
     val (lights, buttons, joltage) = day10.readData("Day10_InputData.txt")
@@ -150,7 +196,7 @@ fun main() {
     val part1 = day10.part1(lights, buttons)
     println("Part 1: $part1")
 
-    val part2 = day10.part2(joltage, buttons)
+    val part2 = day10.part2z3(joltage, buttons)
     println("Part 2: $part2")
 }
 
